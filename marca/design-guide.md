@@ -1,49 +1,60 @@
 # Guia de Design
 
-> Você pode editar esse arquivo a qualquer momento.
+> Voce pode editar esse arquivo a qualquer momento.
 > As skills de carrossel, proposta e slide leem este arquivo antes de criar qualquer visual.
 
 ---
 
 ## Cores
 
-- **Fundo principal:**
+- **Fundo principal:** #000000 (preto)
 
-- **Cor de destaque / CTA:**
+- **Cor de destaque / CTA:** #FFFFFF (branco)
 
-- **Texto principal:**
+- **Texto principal:** #FFFFFF (branco sobre fundo escuro) / #000000 (preto sobre fundo claro)
 
-- **Fundo alternativo / cards:**
+- **Fundo alternativo / cards:** #111111 (cinza muito escuro)
 
-- **Cor proibida:**
+- **Cor proibida:** Cores vibrantes ou neon. Nada que quebre o visual minimalista.
 
 ---
 
 ## Tipografia
 
-- **Títulos e destaques:**
+- **Titulos e destaques:** Sans-serif moderna (Inter, Helvetica Neue ou similar)
 
-- **Corpo, subtítulos e botões:**
+- **Corpo, subtitulos e botoes:** Mesma familia, peso regular
 
-- **Peso do título:**
+- **Peso do titulo:** Bold (700)
 
 ---
 
 ## Estilo geral
 
+Minimalista, clean, premium. Visual limpo e profissional. Referencia estetica moderna.
+Serve pros dois projetos (G.L Trafego e Vinci Tech) — mesma base visual.
+
 ---
 
 ## Elementos-chave
 
-- Bordas:
-- Border-radius dos cards:
-- Botões:
-- Sombras:
+- Bordas: finas ou nenhuma
+- Border-radius dos cards: 8px (suave)
+- Botoes: fundo branco com texto preto, ou borda branca com texto branco
+- Sombras: nenhuma ou muito sutil
 
 ---
 
 ## O que NUNCA fazer
 
+- Visual poluido ou carregado
+- Cores vibrantes fora do preto e branco
+- Excesso de elementos decorativos
+- Fontes serifadas ou manuscritas
+- Layouts desorganizados
+
 ---
 
-## Observações adicionais
+## Observacoes adicionais
+
+Ambos os projetos compartilham a mesma identidade visual base. Se precisar diferenciar, usar o logo de cada um como elemento de marca.
