@@ -74,6 +74,60 @@
     text-transform: uppercase;
     letter-spacing: 0.08em;
   }
+  /* LOGOS */
+  .logo-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+  }
+  .gl-logo {
+    display: flex;
+    flex-direction: column;
+    line-height: 1;
+  }
+  .gl-logo .gl-main {
+    font-size: 15px;
+    font-weight: 900;
+    letter-spacing: -0.01em;
+    color: #FAFAFA;
+    text-transform: uppercase;
+  }
+  .gl-logo .gl-sub {
+    font-size: 9px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    color: #555;
+    text-transform: uppercase;
+    margin-top: 2px;
+  }
+  .gl-logo-dark .gl-main { color: #0A0A0A; }
+  .gl-logo-dark .gl-sub { color: #999; }
+  .claude-logo {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    opacity: 0.5;
+  }
+  .claude-logo svg { width: 20px; height: 20px; }
+  .claude-logo span {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+  }
+  .claude-logo-light span { color: #FAFAFA; }
+  .claude-logo-dark span { color: #0A0A0A; }
+  /* corner branding on other slides */
+  .corner-brand {
+    position: absolute;
+    bottom: 20px;
+    left: 44px;
+    right: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
 
   /* ─── SLIDE 2 — PROBLEMA ─── */
   .s2 {
@@ -431,7 +485,19 @@
 <!-- SLIDE 1 — CAPA -->
 <div class="label">Slide 1 — Capa</div>
 <div class="slide s1">
-  <div class="tag">Tráfego + IA</div>
+  <div class="logo-bar">
+    <div class="gl-logo">
+      <div class="gl-main">G.L Tráfego</div>
+      <div class="gl-sub">Tráfego Pago</div>
+    </div>
+    <div class="claude-logo claude-logo-light">
+      <svg viewBox="0 0 46 46" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M31.24 7.207a9.148 9.148 0 0 0-8.647 6.155l-7.698 22.36a9.148 9.148 0 1 0 17.295 5.956l7.698-22.36a9.148 9.148 0 0 0-8.648-12.111z" fill="#FAFAFA"/>
+        <path d="M14.76 7.207a9.148 9.148 0 0 1 8.647 6.155l7.698 22.36a9.148 9.148 0 1 1-17.295 5.956L6.112 19.318a9.148 9.148 0 0 1 8.648-12.111z" fill="#FAFAFA" opacity="0.5"/>
+      </svg>
+      <span>Claude</span>
+    </div>
+  </div>
   <h1>A IA que<br><span>substituiu</span><br>3 horas<br>do meu dia</h1>
   <div>
     <div class="sub">O que o Claude Code faz na operação de tráfego pago na prática</div>
@@ -442,7 +508,7 @@
 
 <!-- SLIDE 2 — PROBLEMA -->
 <div class="label">Slide 2 — O problema</div>
-<div class="slide s2">
+<div class="slide s2" style="position:relative">
   <div class="eyebrow">A realidade</div>
   <h2>Gestor de<br>tráfego vira<br>operador</h2>
   <p>A maior parte do tempo de um gestor não vai pra estratégia. Vai pra tarefa repetitiva: relatório, proposta, roteiro, atualização de cliente. É operacional, não estratégico.</p>
@@ -456,16 +522,31 @@
       <div class="txt">essas horas geram resultado direto</div>
     </div>
   </div>
+  <div class="corner-brand">
+    <div class="gl-logo gl-logo-dark" style="opacity:0.35">
+      <div class="gl-main">G.L Tráfego</div>
+      <div class="gl-sub">@ogiliadebarth</div>
+    </div>
+  </div>
 </div>
 
 <!-- SLIDE 3 — O QUE É -->
 <div class="label">Slide 3 — O que é o Claude Code</div>
-<div class="slide s3">
+<div class="slide s3" style="position:relative">
   <div class="num">01</div>
   <div>
     <h2>Claude Code<br>não é chatbot</h2>
     <div style="height:16px"></div>
     <p>É um agente que roda no seu computador, acessa seus arquivos, conecta com Notion, Gmail e Meta Ads, e executa tarefas completas com um comando. Ele lembra do contexto do seu negócio toda vez que você abre.</p>
+  </div>
+  <div class="corner-brand" style="bottom:20px">
+    <div class="claude-logo claude-logo-light" style="opacity:0.3">
+      <svg viewBox="0 0 46 46" fill="none" xmlns="http://www.w3.org/2000/svg" width="16" height="16">
+        <path d="M31.24 7.207a9.148 9.148 0 0 0-8.647 6.155l-7.698 22.36a9.148 9.148 0 1 0 17.295 5.956l7.698-22.36a9.148 9.148 0 0 0-8.648-12.111z" fill="#FAFAFA"/>
+        <path d="M14.76 7.207a9.148 9.148 0 0 1 8.647 6.155l7.698 22.36a9.148 9.148 0 1 1-17.295 5.956L6.112 19.318a9.148 9.148 0 0 1 8.648-12.111z" fill="#FAFAFA" opacity="0.5"/>
+      </svg>
+      <span style="font-size:10px; color:#FAFAFA">Claude Code</span>
+    </div>
   </div>
 </div>
 
@@ -557,7 +638,19 @@
 <!-- SLIDE 9 — CTA -->
 <div class="label">Slide 9 — CTA</div>
 <div class="slide s9">
-  <div class="logo">@ogiliadebarth</div>
+  <div class="logo-bar" style="width:100%">
+    <div class="gl-logo">
+      <div class="gl-main">G.L Tráfego</div>
+      <div class="gl-sub">Tráfego Pago</div>
+    </div>
+    <div class="claude-logo claude-logo-light">
+      <svg viewBox="0 0 46 46" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M31.24 7.207a9.148 9.148 0 0 0-8.647 6.155l-7.698 22.36a9.148 9.148 0 1 0 17.295 5.956l7.698-22.36a9.148 9.148 0 0 0-8.648-12.111z" fill="#FAFAFA"/>
+        <path d="M14.76 7.207a9.148 9.148 0 0 1 8.647 6.155l7.698 22.36a9.148 9.148 0 1 1-17.295 5.956L6.112 19.318a9.148 9.148 0 0 1 8.648-12.111z" fill="#FAFAFA" opacity="0.5"/>
+      </svg>
+      <span>Claude</span>
+    </div>
+  </div>
   <h2>Quer montar<br>essa operação<br>também?</h2>
   <div class="cta-box">
     <div class="btn">Segue o perfil pra ver mais</div>
