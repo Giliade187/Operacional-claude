@@ -1,0 +1,794 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vinci Tech — Brand Book</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Instrument+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --black: #0A0A0A;
+    --white: #FAFAFA;
+    --accent: #C8C8C8;
+    --surface-dark: #141414;
+    --surface-medium: #1E1E1E;
+    --surface-light: #F5F5F5;
+    --border: #2A2A2A;
+    --border-light: #E0E0E0;
+    --success: #22C55E;
+    --warning: #F59E0B;
+    --error: #EF4444;
+    --info: #3B82F6;
+    --whatsapp: #25D366;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Inter', sans-serif; background: var(--black); color: var(--white); overflow-x: hidden; }
+
+  /* PAGE/SECTION */
+  .page { min-height: 100vh; display: flex; flex-direction: column; justify-content: center; padding: 80px 60px; position: relative; }
+  .page-number { position: absolute; top: 40px; right: 60px; font-size: 12px; font-weight: 600; letter-spacing: 0.1em; color: #555; text-transform: uppercase; }
+  .page-light { background: var(--white); color: var(--black); }
+  .page-dark { background: var(--black); color: var(--white); }
+  .page-surface { background: var(--surface-dark); color: var(--white); }
+
+  .section-label { font-size: 11px; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; margin-bottom: 16px; opacity: 0.5; }
+  .section-title { font-family: 'Instrument Sans', sans-serif; font-size: 56px; font-weight: 700; line-height: 1.1; letter-spacing: -0.03em; margin-bottom: 20px; }
+  .section-sub { font-size: 18px; font-weight: 300; line-height: 1.6; max-width: 600px; opacity: 0.7; }
+
+  /* COVER */
+  .cover { min-height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; background: var(--black); position: relative; }
+  .cover::before { content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: radial-gradient(circle at 50% 50%, rgba(200,200,200,0.03) 0%, transparent 70%); }
+  .cover-logo { width: 200px; margin-bottom: 48px; filter: brightness(0) invert(1); position: relative; z-index: 1; }
+  .cover h1 { font-family: 'Instrument Sans', sans-serif; font-size: 72px; font-weight: 700; letter-spacing: -0.03em; line-height: 1; margin-bottom: 16px; position: relative; z-index: 1; }
+  .cover p { font-size: 16px; font-weight: 300; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); position: relative; z-index: 1; }
+  .cover .year { position: absolute; bottom: 40px; font-size: 12px; letter-spacing: 0.15em; color: #555; }
+
+  /* DIVIDER LINE */
+  .divider { width: 60px; height: 2px; background: var(--accent); margin: 32px 0; }
+  .page-light .divider { background: var(--black); }
+
+  /* LOGO SECTION */
+  .logo-showcase { display: flex; gap: 48px; margin-top: 48px; flex-wrap: wrap; }
+  .logo-box { width: 280px; height: 200px; display: flex; align-items: center; justify-content: center; border-radius: 12px; position: relative; }
+  .logo-box img { width: 160px; }
+  .logo-box .logo-label { position: absolute; bottom: -28px; font-size: 12px; font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase; }
+  .logo-dark { background: var(--black); border: 1px solid var(--border); }
+  .logo-dark img { filter: brightness(0) invert(1); }
+  .logo-light { background: var(--white); border: 1px solid var(--border-light); }
+  .logo-gray { background: var(--accent); }
+
+  /* PROTECTION AREA */
+  .protection-box { width: 400px; height: 280px; border: 2px dashed rgba(200,200,200,0.3); border-radius: 12px; display: flex; align-items: center; justify-content: center; position: relative; margin-top: 48px; }
+  .protection-box img { width: 160px; filter: brightness(0) invert(1); }
+  .protection-marker { position: absolute; font-size: 11px; font-weight: 700; color: var(--accent); letter-spacing: 0.1em; }
+  .protection-marker.top { top: 16px; left: 50%; transform: translateX(-50%); }
+  .protection-marker.bottom { bottom: 16px; left: 50%; transform: translateX(-50%); }
+  .protection-marker.left { left: 16px; top: 50%; transform: translateY(-50%) rotate(-90deg); }
+  .protection-marker.right { right: 16px; top: 50%; transform: translateY(-50%) rotate(90deg); }
+  .protection-line { position: absolute; background: rgba(200,200,200,0.2); }
+  .protection-line.h { height: 1px; width: 100%; left: 0; }
+  .protection-line.v { width: 1px; height: 100%; top: 0; }
+  .protection-line.h.top-line { top: 50px; }
+  .protection-line.h.bottom-line { bottom: 50px; }
+  .protection-line.v.left-line { left: 70px; }
+  .protection-line.v.right-line { right: 70px; }
+
+  /* DONT */
+  .dont-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 48px; }
+  .dont-card { padding: 32px; border-radius: 12px; text-align: center; border: 1px solid var(--border); position: relative; }
+  .dont-card::after { content: ''; position: absolute; top: -1px; left: -1px; right: -1px; bottom: -1px; border-radius: 12px; border: 2px solid var(--error); opacity: 0.4; pointer-events: none; }
+  .dont-card .x-mark { font-size: 32px; margin-bottom: 12px; color: var(--error); }
+  .dont-card .dont-example { height: 60px; display: flex; align-items: center; justify-content: center; margin-bottom: 16px; }
+  .dont-card p { font-size: 13px; color: var(--accent); line-height: 1.4; }
+
+  /* COLORS */
+  .color-section { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; margin-top: 48px; }
+  .color-main { display: flex; flex-direction: column; gap: 24px; }
+  .color-big { border-radius: 16px; padding: 40px; height: 200px; display: flex; flex-direction: column; justify-content: flex-end; position: relative; overflow: hidden; }
+  .color-big .color-name { font-size: 28px; font-weight: 700; font-family: 'Instrument Sans', sans-serif; }
+  .color-big .color-hex { font-size: 14px; font-weight: 600; letter-spacing: 0.05em; margin-top: 4px; opacity: 0.7; }
+  .color-big .color-psychology { font-size: 13px; line-height: 1.5; margin-top: 12px; opacity: 0.6; max-width: 400px; }
+
+  .color-row { display: flex; gap: 16px; flex-wrap: wrap; }
+  .color-chip { width: 80px; height: 80px; border-radius: 12px; display: flex; flex-direction: column; align-items: center; justify-content: center; font-size: 10px; font-weight: 700; letter-spacing: 0.05em; }
+  .color-chip-label { margin-top: 8px; font-size: 11px; color: var(--accent); text-align: center; }
+
+  /* PSYCHOLOGY CARDS */
+  .psych-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 48px; }
+  .psych-card { padding: 32px; border-radius: 16px; border: 1px solid var(--border); }
+  .psych-card .psych-swatch { width: 48px; height: 48px; border-radius: 8px; margin-bottom: 16px; }
+  .psych-card h4 { font-size: 18px; font-weight: 700; margin-bottom: 8px; }
+  .psych-card .psych-meaning { font-size: 13px; font-weight: 600; color: var(--accent); margin-bottom: 12px; text-transform: uppercase; letter-spacing: 0.05em; }
+  .psych-card p { font-size: 14px; line-height: 1.6; opacity: 0.7; }
+
+  /* TYPOGRAPHY */
+  .type-showcase { margin-top: 48px; }
+  .type-row { display: flex; align-items: baseline; padding: 24px 0; border-bottom: 1px solid var(--border); }
+  .type-label { min-width: 140px; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: #555; }
+  .type-example { flex: 1; }
+  .type-specs { min-width: 200px; text-align: right; font-size: 12px; color: #555; font-weight: 600; }
+
+  /* POST MOCKUPS */
+  .posts-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; margin-top: 48px; }
+  .post-mockup { border-radius: 12px; overflow: hidden; border: 1px solid var(--border); }
+  .post-header { padding: 12px 16px; display: flex; align-items: center; gap: 10px; border-bottom: 1px solid var(--border); }
+  .post-avatar { width: 32px; height: 32px; border-radius: 50%; background: var(--surface-medium); display: flex; align-items: center; justify-content: center; font-size: 10px; font-weight: 700; }
+  .post-user { font-size: 13px; font-weight: 600; }
+  .post-image { width: 100%; aspect-ratio: 1/1; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 32px; text-align: center; position: relative; }
+  .post-type-label { position: absolute; top: 12px; left: 12px; font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; padding: 4px 8px; border-radius: 4px; background: rgba(0,0,0,0.5); color: #FFF; }
+
+  /* STORY MOCKUPS */
+  .stories-row { display: flex; gap: 24px; margin-top: 48px; }
+  .story-mockup { width: 220px; height: 390px; border-radius: 16px; overflow: hidden; display: flex; flex-direction: column; justify-content: flex-end; padding: 24px; position: relative; border: 1px solid var(--border); }
+  .story-mockup .story-bg { position: absolute; top: 0; left: 0; right: 0; bottom: 0; z-index: 0; }
+  .story-mockup .story-content { position: relative; z-index: 1; }
+  .story-cta { display: inline-block; padding: 10px 20px; border-radius: 8px; font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; margin-top: 12px; text-decoration: none; }
+
+  /* INSTAGRAM GRID */
+  .insta-container { margin-top: 48px; max-width: 420px; }
+  .insta-profile { display: flex; align-items: center; gap: 24px; margin-bottom: 24px; padding-bottom: 24px; border-bottom: 1px solid var(--border); }
+  .insta-avatar-big { width: 80px; height: 80px; border-radius: 50%; background: var(--surface-medium); display: flex; align-items: center; justify-content: center; font-size: 24px; font-weight: 700; font-family: 'Instrument Sans', sans-serif; }
+  .insta-info h3 { font-size: 18px; font-weight: 700; }
+  .insta-info p { font-size: 13px; color: var(--accent); margin-top: 4px; }
+  .insta-stats { display: flex; gap: 24px; margin-top: 8px; }
+  .insta-stats span { font-size: 12px; color: var(--accent); }
+  .insta-stats strong { color: var(--white); }
+  .insta-highlights { display: flex; gap: 16px; margin-bottom: 24px; }
+  .insta-highlight { text-align: center; }
+  .insta-highlight-circle { width: 56px; height: 56px; border-radius: 50%; border: 2px solid var(--border); display: flex; align-items: center; justify-content: center; font-size: 18px; margin-bottom: 4px; }
+  .insta-highlight span { font-size: 10px; color: var(--accent); }
+  .insta-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 3px; }
+  .insta-cell { aspect-ratio: 1/1; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 8px; text-align: center; font-size: 9px; font-weight: 600; letter-spacing: 0.03em; line-height: 1.3; position: relative; overflow: hidden; }
+  .insta-cell .cell-icon { font-size: 28px; margin-bottom: 6px; }
+  .insta-cell .cell-text { max-width: 90%; }
+
+  /* CAROUSEL MOCKUP */
+  .carousel-container { margin-top: 48px; }
+  .carousel-slides { display: flex; gap: 16px; overflow-x: auto; padding-bottom: 16px; }
+  .carousel-slide { min-width: 300px; height: 300px; border-radius: 12px; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 32px; text-align: center; flex-shrink: 0; position: relative; }
+  .carousel-dots { display: flex; gap: 6px; justify-content: center; margin-top: 12px; }
+  .carousel-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--border); }
+  .carousel-dot.active { background: var(--white); }
+  .slide-number { position: absolute; top: 16px; right: 16px; font-size: 11px; font-weight: 700; color: rgba(255,255,255,0.3); }
+
+  /* RESPONSIVE */
+  @media (max-width: 768px) {
+    .page { padding: 48px 24px; }
+    .section-title { font-size: 36px; }
+    .cover h1 { font-size: 48px; }
+    .posts-grid { grid-template-columns: 1fr; }
+    .dont-grid { grid-template-columns: 1fr; }
+    .psych-grid { grid-template-columns: 1fr; }
+    .color-section { grid-template-columns: 1fr; }
+    .logo-showcase { flex-direction: column; align-items: center; }
+    .stories-row { flex-direction: column; align-items: center; }
+    .carousel-slide { min-width: 260px; height: 260px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ==================== CAPA ==================== -->
+<div class="cover">
+  <img src="https://dcdn-us.mitiendanube.com/stores/006/855/027/themes/common/logo-4937658114489401354-1769556079-0771ec204b9d1e0fb1c4dd70486dcd4e1769556080.png" alt="Vinci Tech" class="cover-logo">
+  <h1>Brand Book</h1>
+  <p>Manual de Identidade Visual &mdash; 2026</p>
+  <div class="year">VINCI TECH &mdash; CONFIDENCIAL</div>
+</div>
+
+<!-- ==================== 01. LOGO ==================== -->
+<div class="page page-dark">
+  <div class="page-number">01 / Logotipo</div>
+  <div class="section-label">Identidade</div>
+  <div class="section-title">Logotipo</div>
+  <div class="divider"></div>
+  <div class="section-sub">A marca Vinci Tech usa uma wordmark tipografica. Sem icone, sem simbolo. O nome e a marca. Simples, direto, memoravel.</div>
+
+  <div class="logo-showcase">
+    <div>
+      <div class="logo-box logo-dark">
+        <img src="https://dcdn-us.mitiendanube.com/stores/006/855/027/themes/common/logo-4937658114489401354-1769556079-0771ec204b9d1e0fb1c4dd70486dcd4e1769556080.png" alt="Logo branco">
+      </div>
+      <div class="logo-box" style="margin-top:8px;"><span style="font-size:12px; font-weight:600; letter-spacing:0.05em; text-transform:uppercase; color:var(--accent)">Versao Principal — Fundo Escuro</span></div>
+    </div>
+    <div>
+      <div class="logo-box logo-light">
+        <img src="https://dcdn-us.mitiendanube.com/stores/006/855/027/themes/common/logo-4937658114489401354-1769556079-0771ec204b9d1e0fb1c4dd70486dcd4e1769556080.png" alt="Logo preto">
+      </div>
+      <div class="logo-box" style="margin-top:8px;"><span style="font-size:12px; font-weight:600; letter-spacing:0.05em; text-transform:uppercase; color:var(--accent)">Versao Secundaria — Fundo Claro</span></div>
+    </div>
+    <div>
+      <div class="logo-box logo-gray">
+        <img src="https://dcdn-us.mitiendanube.com/stores/006/855/027/themes/common/logo-4937658114489401354-1769556079-0771ec204b9d1e0fb1c4dd70486dcd4e1769556080.png" alt="Logo cinza" style="filter:brightness(0)">
+      </div>
+      <div class="logo-box" style="margin-top:8px;"><span style="font-size:12px; font-weight:600; letter-spacing:0.05em; text-transform:uppercase; color:var(--accent)">Alternativa — Fundo Neutro</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- 02. AREA DE PROTECAO -->
+<div class="page page-surface">
+  <div class="page-number">02 / Area de Protecao</div>
+  <div class="section-label">Logotipo</div>
+  <div class="section-title">Area de Protecao</div>
+  <div class="divider"></div>
+  <div class="section-sub">A logo precisa de respiro. Nenhum elemento deve invadir a area de protecao. A distancia minima e equivalente a altura da letra "V" do logotipo.</div>
+
+  <div class="protection-box">
+    <div class="protection-line h top-line"></div>
+    <div class="protection-line h bottom-line"></div>
+    <div class="protection-line v left-line"></div>
+    <div class="protection-line v right-line"></div>
+    <div class="protection-marker top">1x</div>
+    <div class="protection-marker bottom">1x</div>
+    <div class="protection-marker left">1x</div>
+    <div class="protection-marker right">1x</div>
+    <img src="https://dcdn-us.mitiendanube.com/stores/006/855/027/themes/common/logo-4937658114489401354-1769556079-0771ec204b9d1e0fb1c4dd70486dcd4e1769556080.png" alt="Logo protecao">
+  </div>
+</div>
+
+<!-- 03. USO INCORRETO -->
+<div class="page page-dark">
+  <div class="page-number">03 / Uso Incorreto</div>
+  <div class="section-label">Logotipo</div>
+  <div class="section-title">O que NAO fazer</div>
+  <div class="divider"></div>
+  <div class="section-sub">A marca deve ser sempre aplicada de forma consistente. Evite qualquer distorcao.</div>
+
+  <div class="dont-grid">
+    <div class="dont-card">
+      <div class="x-mark">&#10005;</div>
+      <div class="dont-example">
+        <span style="font-family:'Instrument Sans'; font-size:22px; font-weight:700; transform:skewX(-15deg); display:inline-block;">VINCI TECH</span>
+      </div>
+      <p>Nunca distorcer ou inclinar o logotipo</p>
+    </div>
+    <div class="dont-card">
+      <div class="x-mark">&#10005;</div>
+      <div class="dont-example">
+        <span style="font-family:'Instrument Sans'; font-size:22px; font-weight:700; background: linear-gradient(90deg, #1abc9c, #3B82F6); -webkit-background-clip:text; -webkit-text-fill-color:transparent;">VINCI TECH</span>
+      </div>
+      <p>Nunca usar cores vibrantes ou gradientes</p>
+    </div>
+    <div class="dont-card">
+      <div class="x-mark">&#10005;</div>
+      <div class="dont-example">
+        <span style="font-family:'Instrument Sans'; font-size:22px; font-weight:700; text-shadow: 0 0 20px rgba(255,255,255,0.5);">VINCI TECH</span>
+      </div>
+      <p>Nunca adicionar sombra ou efeitos</p>
+    </div>
+    <div class="dont-card">
+      <div class="x-mark">&#10005;</div>
+      <div class="dont-example">
+        <span style="font-family:'Comic Sans MS', cursive; font-size:22px;">Vinci Tech</span>
+      </div>
+      <p>Nunca trocar a fonte do logotipo</p>
+    </div>
+    <div class="dont-card">
+      <div class="x-mark">&#10005;</div>
+      <div class="dont-example">
+        <span style="font-family:'Instrument Sans'; font-size:22px; font-weight:700; opacity:0.3;">VINCI TECH</span>
+      </div>
+      <p>Nunca reduzir opacidade sobre imagem</p>
+    </div>
+    <div class="dont-card">
+      <div class="x-mark">&#10005;</div>
+      <div class="dont-example">
+        <span style="font-family:'Instrument Sans'; font-size:22px; font-weight:700;"><span style="color:#c0392b">V</span><span style="color:#f1c40f">I</span><span style="color:#1abc9c">N</span><span style="color:#3B82F6">C</span><span style="color:#EF4444">I</span> TECH</span>
+      </div>
+      <p>Nunca usar cores diferentes nas letras</p>
+    </div>
+  </div>
+</div>
+
+<!-- ==================== 04. CORES ==================== -->
+<div class="page page-dark">
+  <div class="page-number">04 / Cores</div>
+  <div class="section-label">Paleta</div>
+  <div class="section-title">Nossas Cores</div>
+  <div class="divider"></div>
+  <div class="section-sub">Cada cor tem uma funcao. Nenhuma cor e decorativa. A paleta transmite sofisticacao, confianca e clareza.</div>
+
+  <div class="color-section">
+    <div>
+      <div class="color-big" style="background:var(--black); border:1px solid var(--border); color:var(--white);">
+        <div class="color-name">Brand Black</div>
+        <div class="color-hex">#0A0A0A</div>
+        <div class="color-psychology">Poder, sofisticacao, premium. O preto quase absoluto transmite confianca e seriedade sem ser frio.</div>
+      </div>
+    </div>
+    <div>
+      <div class="color-big" style="background:var(--white); color:var(--black);">
+        <div class="color-name">Brand White</div>
+        <div class="color-hex">#FAFAFA</div>
+        <div class="color-psychology">Clareza, leveza, respiro. O branco suavizado evita o brilho agressivo e traz sofisticacao.</div>
+      </div>
+    </div>
+  </div>
+
+  <div style="margin-top:32px;">
+    <div class="color-big" style="background:var(--accent); color:var(--black); max-width:100%;">
+      <div class="color-name">Brand Accent</div>
+      <div class="color-hex">#C8C8C8</div>
+      <div class="color-psychology">Neutralidade, elegancia, equilibrio. O cinza medio funciona como ponte entre o preto e o branco. Usado em textos secundarios, bordas e elementos de suporte.</div>
+    </div>
+  </div>
+</div>
+
+<!-- 05. PSICOLOGIA DAS CORES -->
+<div class="page page-surface">
+  <div class="page-number">05 / Psicologia</div>
+  <div class="section-label">Cores</div>
+  <div class="section-title">Porque essas cores?</div>
+  <div class="divider"></div>
+  <div class="section-sub">A Vinci Tech vende tecnologia acessivel com percepcao de premium. A paleta monocromatica cria essa percepcao sem precisar de cores vibrantes.</div>
+
+  <div class="psych-grid">
+    <div class="psych-card">
+      <div class="psych-swatch" style="background:var(--black); border:1px solid var(--border);"></div>
+      <h4>Preto #0A0A0A</h4>
+      <div class="psych-meaning">Autoridade + Premium</div>
+      <p>Marcas como Apple, Nike e MVMT usam preto como base. Transmite que o produto e serio, confiavel e sofisticado. O consumidor associa preto a itens de alto valor.</p>
+    </div>
+    <div class="psych-card">
+      <div class="psych-swatch" style="background:var(--white);"></div>
+      <h4>Branco #FAFAFA</h4>
+      <div class="psych-meaning">Clareza + Confianca</div>
+      <p>O branco cria espaco e respiro visual. Em e-commerce, paginas limpas convertem mais. O branco suavizado (nao puro) evita cansaco visual e passa modernidade.</p>
+    </div>
+    <div class="psych-card">
+      <div class="psych-swatch" style="background:var(--accent);"></div>
+      <h4>Cinza #C8C8C8</h4>
+      <div class="psych-meaning">Equilibrio + Sofisticacao</div>
+      <p>O cinza medio nao compete com o conteudo. Funciona como suporte visual — bordas, textos secundarios, elementos sutis que dao acabamento sem roubar atencao.</p>
+    </div>
+    <div class="psych-card">
+      <div class="psych-swatch" style="background:var(--success);"></div>
+      <h4>Verde #22C55E</h4>
+      <div class="psych-meaning">So para funcao</div>
+      <p>Usado APENAS em confirmacoes, "em estoque", sucesso. Nunca como cor decorativa. A unica excecao de verde na marca e o botao do WhatsApp (#25D366).</p>
+    </div>
+    <div class="psych-card">
+      <div class="psych-swatch" style="background:var(--warning);"></div>
+      <h4>Amarelo #F59E0B</h4>
+      <div class="psych-meaning">So para urgencia</div>
+      <p>Usado APENAS em badges de "ultimas pecas" ou alertas. Cria senso de urgencia sem ser agressivo. Nunca aparece em backgrounds ou elementos decorativos.</p>
+    </div>
+    <div class="psych-card">
+      <div class="psych-swatch" style="background:var(--error);"></div>
+      <h4>Vermelho #EF4444</h4>
+      <div class="psych-meaning">So para erro</div>
+      <p>Usado APENAS em erros e "esgotado". NUNCA para precos ou descontos — isso seria um erro de marca que banaliza o visual. A Vinci Tech nao grita, ela mostra valor.</p>
+    </div>
+  </div>
+
+  <div style="margin-top:48px; padding:24px 32px; border-radius:12px; border:1px solid var(--border); background:rgba(239,68,68,0.05);">
+    <div style="font-size:14px; font-weight:700; color:var(--error); margin-bottom:8px;">REGRA DE OURO</div>
+    <div style="font-size:16px; line-height:1.6;">Cor = funcional, NUNCA decorativa. Se uma cor nao tem funcao clara (feedback, estado, acao), ela nao deve existir na interface.</div>
+  </div>
+</div>
+
+<!-- ==================== 06. TIPOGRAFIA ==================== -->
+<div class="page page-dark">
+  <div class="page-number">06 / Tipografia</div>
+  <div class="section-label">Fontes</div>
+  <div class="section-title">Tipografia</div>
+  <div class="divider"></div>
+  <div class="section-sub">Duas fontes. Uma pra impacto, outra pra leitura. Sem excepcoes.</div>
+
+  <div class="type-showcase">
+    <div class="type-row">
+      <div class="type-label">Display</div>
+      <div class="type-example" style="font-family:'Instrument Sans',sans-serif; font-size:48px; font-weight:700; line-height:1.1; letter-spacing:-0.03em;">Tecnologia no Pulso</div>
+      <div class="type-specs">Instrument Sans 48px / 700</div>
+    </div>
+    <div class="type-row">
+      <div class="type-label">Heading 1</div>
+      <div class="type-example" style="font-size:36px; font-weight:700; line-height:1.2; letter-spacing:-0.02em;">Smartwatches Premium</div>
+      <div class="type-specs">Inter 36px / 700</div>
+    </div>
+    <div class="type-row">
+      <div class="type-label">Heading 2</div>
+      <div class="type-example" style="font-size:28px; font-weight:600; line-height:1.25;">Mais Vendidos</div>
+      <div class="type-specs">Inter 28px / 600</div>
+    </div>
+    <div class="type-row">
+      <div class="type-label">Heading 3</div>
+      <div class="type-example" style="font-size:22px; font-weight:600; line-height:1.3;">W11 Pro 2026</div>
+      <div class="type-specs">Inter 22px / 600</div>
+    </div>
+    <div class="type-row">
+      <div class="type-label">Body</div>
+      <div class="type-example" style="font-size:16px; font-weight:400; line-height:1.5; opacity:0.8;">Smartwatch com tela AMOLED de 1.92", resistente a agua, monitoramento cardiaco e mais de 100 modos esportivos. Design premium, preco justo.</div>
+      <div class="type-specs">Inter 16px / 400</div>
+    </div>
+    <div class="type-row">
+      <div class="type-label">Caption</div>
+      <div class="type-example" style="font-size:12px; font-weight:400; line-height:1.4; opacity:0.6;">6x de R$ 58,00 sem juros &bull; Frete gratis para todo Brasil</div>
+      <div class="type-specs">Inter 12px / 400</div>
+    </div>
+    <div class="type-row">
+      <div class="type-label">CTA</div>
+      <div class="type-example" style="font-size:16px; font-weight:700; text-transform:uppercase; letter-spacing:0.05em;">Comprar Agora</div>
+      <div class="type-specs">Inter 16px / 700 / UPPER</div>
+    </div>
+    <div class="type-row">
+      <div class="type-label">Preco</div>
+      <div class="type-example"><span style="font-size:14px; text-decoration:line-through; opacity:0.4; margin-right:12px;">R$ 599,00</span><span style="font-size:32px; font-weight:700;">R$ 348,00</span></div>
+      <div class="type-specs">Old: 14px / New: 32px / 700</div>
+    </div>
+  </div>
+</div>
+
+<!-- ==================== 07. POSTS INSTAGRAM ==================== -->
+<div class="page page-surface">
+  <div class="page-number">07 / Posts</div>
+  <div class="section-label">Instagram</div>
+  <div class="section-title">Exemplos de Posts</div>
+  <div class="divider"></div>
+  <div class="section-sub">Tres tipos de post que se alternam no feed: Dark (produto), Light (info/oferta) e UGC (prova social).</div>
+
+  <div class="posts-grid">
+    <!-- POST 1: DARK - Produto -->
+    <div class="post-mockup">
+      <div class="post-header">
+        <div class="post-avatar">VT</div>
+        <div class="post-user">usevincitech</div>
+      </div>
+      <div class="post-image" style="background:var(--black); color:var(--white);">
+        <div class="post-type-label">Dark — Produto</div>
+        <div style="font-size:48px; margin-bottom:16px;">&#9201;</div>
+        <div style="font-family:'Instrument Sans'; font-size:20px; font-weight:700; text-transform:uppercase; letter-spacing:-0.02em; margin-bottom:8px;">W11 Pro 2026</div>
+        <div style="font-size:13px; color:var(--accent); margin-bottom:16px;">Tela AMOLED 1.92" &bull; IP68</div>
+        <div style="font-size:24px; font-weight:700;">R$ 348,00</div>
+        <div style="font-size:11px; color:var(--accent); margin-top:4px;">6x sem juros + frete gratis</div>
+        <div style="margin-top:20px; background:var(--white); color:var(--black); padding:8px 20px; border-radius:6px; font-size:12px; font-weight:700; text-transform:uppercase; letter-spacing:0.05em;">Comprar</div>
+      </div>
+    </div>
+
+    <!-- POST 2: LIGHT - Oferta -->
+    <div class="post-mockup">
+      <div class="post-header">
+        <div class="post-avatar">VT</div>
+        <div class="post-user">usevincitech</div>
+      </div>
+      <div class="post-image" style="background:var(--white); color:var(--black);">
+        <div class="post-type-label" style="background:rgba(0,0,0,0.08); color:var(--black);">Light — Oferta</div>
+        <div style="font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:0.1em; color:var(--accent); margin-bottom:12px;">Oferta da Semana</div>
+        <div style="font-family:'Instrument Sans'; font-size:28px; font-weight:700; line-height:1.15; letter-spacing:-0.02em; margin-bottom:16px;">Compre 1<br>Leve 2</div>
+        <div style="font-size:48px; margin-bottom:16px;">&#9201;&#9201;</div>
+        <div style="font-size:13px; color:#666; margin-bottom:16px;">2 smartwatches pelo preco de 1</div>
+        <div style="background:var(--black); color:var(--white); padding:8px 20px; border-radius:6px; font-size:12px; font-weight:700; text-transform:uppercase; letter-spacing:0.05em;">Aproveitar</div>
+      </div>
+    </div>
+
+    <!-- POST 3: UGC - Prova Social -->
+    <div class="post-mockup">
+      <div class="post-header">
+        <div class="post-avatar">VT</div>
+        <div class="post-user">usevincitech</div>
+      </div>
+      <div class="post-image" style="background:linear-gradient(135deg, #2A2A2A 0%, #141414 100%); color:var(--white);">
+        <div class="post-type-label">UGC — Prova Social</div>
+        <div style="font-size:48px; margin-bottom:16px; opacity:0.6;">&#128113;</div>
+        <div style="font-size:32px; margin-bottom:12px;">&ldquo;</div>
+        <div style="font-size:15px; font-weight:400; line-height:1.5; font-style:italic; max-width:220px; opacity:0.9;">Melhor relogio que ja tive. Parece Apple Watch mas custou 5x menos.</div>
+        <div style="margin-top:16px; font-size:12px; font-weight:600; color:var(--accent);">@cliente_real</div>
+        <div style="display:flex; gap:4px; margin-top:8px; justify-content:center;">
+          <span style="color:#F59E0B;">&#9733;</span>
+          <span style="color:#F59E0B;">&#9733;</span>
+          <span style="color:#F59E0B;">&#9733;</span>
+          <span style="color:#F59E0B;">&#9733;</span>
+          <span style="color:#F59E0B;">&#9733;</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ==================== 08. CARROSSEL ==================== -->
+<div class="page page-dark">
+  <div class="page-number">08 / Carrossel</div>
+  <div class="section-label">Instagram</div>
+  <div class="section-title">Exemplo de Carrossel</div>
+  <div class="divider"></div>
+  <div class="section-sub">Carrossel educativo/produto — 5 slides com estrutura fixa: Hook > Problema > Solucao > Produto > CTA.</div>
+
+  <div class="carousel-container">
+    <div class="carousel-slides">
+      <!-- Slide 1 - Hook -->
+      <div class="carousel-slide" style="background:var(--black); border:1px solid var(--border); color:var(--white);">
+        <div class="slide-number">1/5</div>
+        <div style="font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:0.1em; color:var(--accent); margin-bottom:16px;">@usevincitech</div>
+        <div style="font-family:'Instrument Sans'; font-size:28px; font-weight:700; line-height:1.15; letter-spacing:-0.02em;">Voce esta pagando caro demais num relogio</div>
+      </div>
+      <!-- Slide 2 - Problema -->
+      <div class="carousel-slide" style="background:var(--surface-dark); border:1px solid var(--border); color:var(--white);">
+        <div class="slide-number">2/5</div>
+        <div style="font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:0.1em; color:var(--error); margin-bottom:16px;">O Problema</div>
+        <div style="font-size:16px; line-height:1.6; opacity:0.8;">Apple Watch: R$ 3.500<br>Galaxy Watch: R$ 2.200<br><br>As mesmas funcoes que voce realmente usa custam 5x menos.</div>
+      </div>
+      <!-- Slide 3 - Solucao -->
+      <div class="carousel-slide" style="background:var(--surface-medium); border:1px solid var(--border); color:var(--white);">
+        <div class="slide-number">3/5</div>
+        <div style="font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:0.1em; color:var(--success); margin-bottom:16px;">A Solucao</div>
+        <div style="font-size:16px; line-height:1.6; opacity:0.8;">Tela AMOLED<br>Monitoramento cardiaco<br>100+ modos esportivos<br>Resistente a agua (IP68)<br><br><strong style="font-size:24px;">R$ 348,00</strong></div>
+      </div>
+      <!-- Slide 4 - Produto -->
+      <div class="carousel-slide" style="background:var(--black); border:1px solid var(--border); color:var(--white);">
+        <div class="slide-number">4/5</div>
+        <div style="font-size:56px; margin-bottom:16px;">&#9201;</div>
+        <div style="font-family:'Instrument Sans'; font-size:22px; font-weight:700;">W11 Pro 2026</div>
+        <div style="font-size:13px; color:var(--accent); margin-top:8px;">Frete gratis &bull; 6x sem juros &bull; Garantia 90 dias</div>
+      </div>
+      <!-- Slide 5 - CTA -->
+      <div class="carousel-slide" style="background:var(--black); border:1px solid var(--border); color:var(--white);">
+        <div class="slide-number">5/5</div>
+        <div style="font-family:'Instrument Sans'; font-size:24px; font-weight:700; margin-bottom:24px;">Tecnologia no pulso.<br>Preco no bolso.</div>
+        <div style="background:var(--white); color:var(--black); padding:12px 28px; border-radius:6px; font-size:14px; font-weight:700; text-transform:uppercase; letter-spacing:0.05em;">Link na bio</div>
+        <div style="font-size:12px; color:var(--accent); margin-top:16px;">@usevincitech</div>
+      </div>
+    </div>
+    <div class="carousel-dots">
+      <div class="carousel-dot active"></div>
+      <div class="carousel-dot"></div>
+      <div class="carousel-dot"></div>
+      <div class="carousel-dot"></div>
+      <div class="carousel-dot"></div>
+    </div>
+  </div>
+</div>
+
+<!-- ==================== 09. STORIES ==================== -->
+<div class="page page-dark">
+  <div class="page-number">09 / Stories</div>
+  <div class="section-label">Instagram</div>
+  <div class="section-title">Stories</div>
+  <div class="divider"></div>
+  <div class="section-sub">Fundo escuro, texto branco, CTA claro. Sem stickers coloridos, sem GIFs excessivos.</div>
+
+  <div class="stories-row">
+    <!-- Story 1: Produto -->
+    <div class="story-mockup">
+      <div class="story-bg" style="background:linear-gradient(180deg, #0A0A0A 0%, #1E1E1E 100%);"></div>
+      <div class="story-content">
+        <div style="font-size:10px; font-weight:700; text-transform:uppercase; letter-spacing:0.1em; color:var(--accent); margin-bottom:8px;">Novo</div>
+        <div style="font-size:40px; margin-bottom:12px; text-align:center;">&#9201;</div>
+        <div style="font-family:'Instrument Sans'; font-size:20px; font-weight:700; line-height:1.2;">W11 Pro<br>2026</div>
+        <div style="font-size:12px; color:var(--accent); margin-top:8px;">Tela AMOLED &bull; IP68</div>
+        <div class="story-cta" style="background:var(--white); color:var(--black);">Ver mais</div>
+      </div>
+    </div>
+
+    <!-- Story 2: Oferta -->
+    <div class="story-mockup">
+      <div class="story-bg" style="background:var(--black);"></div>
+      <div class="story-content">
+        <div style="font-size:10px; font-weight:700; text-transform:uppercase; letter-spacing:0.1em; color:var(--warning); margin-bottom:12px;">Ultimas unidades</div>
+        <div style="font-family:'Instrument Sans'; font-size:24px; font-weight:700; line-height:1.15;">Compre 1<br>Leve 2</div>
+        <div style="font-size:13px; color:var(--accent); margin-top:12px;">Cupom: BEMVINDO</div>
+        <div class="story-cta" style="background:var(--white); color:var(--black);">Comprar</div>
+      </div>
+    </div>
+
+    <!-- Story 3: Depoimento -->
+    <div class="story-mockup">
+      <div class="story-bg" style="background:linear-gradient(180deg, #141414 0%, #0A0A0A 100%);"></div>
+      <div class="story-content">
+        <div style="font-size:32px; margin-bottom:8px;">&ldquo;</div>
+        <div style="font-size:14px; font-style:italic; line-height:1.5; opacity:0.9;">Chegou rapido, embalagem top e o relogio e lindo demais</div>
+        <div style="font-size:11px; color:var(--accent); margin-top:12px;">@maria_cliente</div>
+        <div style="display:flex; gap:3px; margin-top:6px;">
+          <span style="color:#F59E0B; font-size:12px;">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+        </div>
+        <div class="story-cta" style="background:var(--white); color:var(--black);">Ver avaliacoes</div>
+      </div>
+    </div>
+
+    <!-- Story 4: Bastidores -->
+    <div class="story-mockup">
+      <div class="story-bg" style="background:var(--surface-dark);"></div>
+      <div class="story-content">
+        <div style="font-size:10px; font-weight:700; text-transform:uppercase; letter-spacing:0.1em; color:var(--accent); margin-bottom:12px;">Bastidores</div>
+        <div style="font-size:40px; margin-bottom:12px; text-align:center;">&#128230;</div>
+        <div style="font-size:15px; font-weight:600; line-height:1.4;">Preparando os pedidos de hoje</div>
+        <div style="font-size:12px; color:var(--accent); margin-top:8px;">Estoque nacional, pronta entrega</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ==================== 10. HIGHLIGHTS ==================== -->
+<div class="page page-surface">
+  <div class="page-number">10 / Highlights</div>
+  <div class="section-label">Instagram</div>
+  <div class="section-title">Destaques</div>
+  <div class="divider"></div>
+  <div class="section-sub">Icones em linha fina, branco sobre preto. Categorias fixas e organizadas.</div>
+
+  <div style="display:flex; gap:32px; margin-top:48px;">
+    <div style="text-align:center;">
+      <div style="width:72px; height:72px; border-radius:50%; background:var(--black); border:2px solid var(--border); display:flex; align-items:center; justify-content:center; font-size:28px; margin-bottom:8px;">&#9201;</div>
+      <div style="font-size:12px; font-weight:600;">Relogios</div>
+    </div>
+    <div style="text-align:center;">
+      <div style="width:72px; height:72px; border-radius:50%; background:var(--black); border:2px solid var(--border); display:flex; align-items:center; justify-content:center; font-size:28px; margin-bottom:8px;">&#127381;</div>
+      <div style="font-size:12px; font-weight:600;">Ofertas</div>
+    </div>
+    <div style="text-align:center;">
+      <div style="width:72px; height:72px; border-radius:50%; background:var(--black); border:2px solid var(--border); display:flex; align-items:center; justify-content:center; font-size:28px; margin-bottom:8px;">&#11088;</div>
+      <div style="font-size:12px; font-weight:600;">Reviews</div>
+    </div>
+    <div style="text-align:center;">
+      <div style="width:72px; height:72px; border-radius:50%; background:var(--black); border:2px solid var(--border); display:flex; align-items:center; justify-content:center; font-size:28px; margin-bottom:8px;">&#10067;</div>
+      <div style="font-size:12px; font-weight:600;">FAQ</div>
+    </div>
+    <div style="text-align:center;">
+      <div style="width:72px; height:72px; border-radius:50%; background:var(--black); border:2px solid var(--border); display:flex; align-items:center; justify-content:center; font-size:28px; margin-bottom:8px;">&#128172;</div>
+      <div style="font-size:12px; font-weight:600;">Sobre</div>
+    </div>
+  </div>
+</div>
+
+<!-- ==================== 11. FEED DO INSTAGRAM ==================== -->
+<div class="page page-dark">
+  <div class="page-number">11 / Feed</div>
+  <div class="section-label">Instagram</div>
+  <div class="section-title">Grid do Feed</div>
+  <div class="divider"></div>
+  <div class="section-sub">Padrao: Dark > Light > UGC. Cria ritmo visual e faz o feed parecer organizado mesmo sem planejar cada post.</div>
+
+  <div class="insta-container">
+    <!-- Profile -->
+    <div class="insta-profile">
+      <div class="insta-avatar-big">VT</div>
+      <div class="insta-info">
+        <h3>usevincitech</h3>
+        <p>Tecnologia no pulso. Preco no bolso.</p>
+        <p style="margin-top:2px;">vincitechbr.com</p>
+        <div class="insta-stats">
+          <span><strong>1.2k</strong> posts</span>
+          <span><strong>15k</strong> seguidores</span>
+          <span><strong>320</strong> seguindo</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Highlights -->
+    <div class="insta-highlights">
+      <div class="insta-highlight">
+        <div class="insta-highlight-circle">&#9201;</div>
+        <span>Relogios</span>
+      </div>
+      <div class="insta-highlight">
+        <div class="insta-highlight-circle">&#127381;</div>
+        <span>Ofertas</span>
+      </div>
+      <div class="insta-highlight">
+        <div class="insta-highlight-circle">&#11088;</div>
+        <span>Reviews</span>
+      </div>
+      <div class="insta-highlight">
+        <div class="insta-highlight-circle">&#10067;</div>
+        <span>FAQ</span>
+      </div>
+      <div class="insta-highlight">
+        <div class="insta-highlight-circle">&#128172;</div>
+        <span>Sobre</span>
+      </div>
+    </div>
+
+    <!-- Grid: 4 rows x 3 cols = 12 posts (Dark > Light > UGC pattern) -->
+    <div class="insta-grid">
+      <!-- Row 1 -->
+      <div class="insta-cell" style="background:var(--black); color:var(--white);">
+        <div class="cell-icon">&#9201;</div>
+        <div class="cell-text">W11 PRO<br>R$ 348</div>
+      </div>
+      <div class="insta-cell" style="background:var(--white); color:var(--black);">
+        <div class="cell-icon">&#127381;</div>
+        <div class="cell-text">COMPRE 1<br>LEVE 2</div>
+      </div>
+      <div class="insta-cell" style="background:linear-gradient(135deg,#2A2A2A,#141414); color:var(--white);">
+        <div class="cell-icon">&#128113;</div>
+        <div class="cell-text" style="font-style:italic; opacity:0.8;">"Amei o relogio"</div>
+      </div>
+      <!-- Row 2 -->
+      <div class="insta-cell" style="background:var(--black); color:var(--white);">
+        <div class="cell-icon">&#9201;</div>
+        <div class="cell-text">W11 MINI<br>R$ 357</div>
+      </div>
+      <div class="insta-cell" style="background:var(--white); color:var(--black);">
+        <div class="cell-text" style="font-size:11px; line-height:1.4;">5 MOTIVOS<br>PRA USAR<br>SMARTWATCH</div>
+      </div>
+      <div class="insta-cell" style="background:linear-gradient(135deg,#1E1E1E,#0A0A0A); color:var(--white);">
+        <div class="cell-icon">&#128230;</div>
+        <div class="cell-text">UNBOXING</div>
+      </div>
+      <!-- Row 3 -->
+      <div class="insta-cell" style="background:var(--black); color:var(--white);">
+        <div class="cell-icon">&#9201;</div>
+        <div class="cell-text">S10 PRO<br>R$ 318</div>
+      </div>
+      <div class="insta-cell" style="background:var(--white); color:var(--black);">
+        <div class="cell-icon">&#127873;</div>
+        <div class="cell-text">FRETE<br>GRATIS</div>
+      </div>
+      <div class="insta-cell" style="background:linear-gradient(135deg,#2A2A2A,#141414); color:var(--white);">
+        <div class="cell-icon">&#128113;</div>
+        <div class="cell-text" style="font-style:italic; opacity:0.8;">"Parece Apple Watch"</div>
+      </div>
+      <!-- Row 4 -->
+      <div class="insta-cell" style="background:var(--black); color:var(--white);">
+        <div class="cell-icon">&#9201;</div>
+        <div class="cell-text">COMBO<br>R$ 367</div>
+      </div>
+      <div class="insta-cell" style="background:var(--white); color:var(--black);">
+        <div class="cell-text" style="font-size:11px; line-height:1.4;">CUPOM<br>BEMVINDO<br>10% OFF</div>
+      </div>
+      <div class="insta-cell" style="background:linear-gradient(135deg,#1E1E1E,#0A0A0A); color:var(--white);">
+        <div style="display:flex; gap:2px; margin-bottom:6px;">
+          <span style="color:#F59E0B; font-size:12px;">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+        </div>
+        <div class="cell-text">REVIEW<br>REAL</div>
+      </div>
+    </div>
+
+    <!-- Grid Legend -->
+    <div style="display:flex; gap:24px; margin-top:20px;">
+      <div style="display:flex; align-items:center; gap:8px;">
+        <div style="width:16px; height:16px; background:var(--black); border:1px solid var(--border); border-radius:3px;"></div>
+        <span style="font-size:11px; color:var(--accent);">Dark (Produto)</span>
+      </div>
+      <div style="display:flex; align-items:center; gap:8px;">
+        <div style="width:16px; height:16px; background:var(--white); border-radius:3px;"></div>
+        <span style="font-size:11px; color:var(--accent);">Light (Info/Oferta)</span>
+      </div>
+      <div style="display:flex; align-items:center; gap:8px;">
+        <div style="width:16px; height:16px; background:linear-gradient(135deg,#2A2A2A,#141414); border-radius:3px;"></div>
+        <span style="font-size:11px; color:var(--accent);">UGC (Social Proof)</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ==================== 12. RESUMO ==================== -->
+<div class="page page-dark" style="text-align:center; align-items:center;">
+  <div class="page-number">12 / Resumo</div>
+  <img src="https://dcdn-us.mitiendanube.com/stores/006/855/027/themes/common/logo-4937658114489401354-1769556079-0771ec204b9d1e0fb1c4dd70486dcd4e1769556080.png" alt="Vinci Tech" style="width:120px; filter:brightness(0) invert(1); margin-bottom:48px;">
+
+  <div style="display:grid; grid-template-columns:repeat(3, 1fr); gap:32px; max-width:800px; text-align:left;">
+    <div>
+      <div style="font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:0.1em; color:#555; margin-bottom:12px;">Cores</div>
+      <div style="display:flex; gap:8px; margin-bottom:8px;">
+        <div style="width:32px; height:32px; border-radius:6px; background:var(--black); border:1px solid var(--border);"></div>
+        <div style="width:32px; height:32px; border-radius:6px; background:var(--white);"></div>
+        <div style="width:32px; height:32px; border-radius:6px; background:var(--accent);"></div>
+      </div>
+      <div style="font-size:12px; color:var(--accent);">Preto + Branco + Cinza</div>
+    </div>
+    <div>
+      <div style="font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:0.1em; color:#555; margin-bottom:12px;">Fontes</div>
+      <div style="font-family:'Instrument Sans'; font-size:18px; font-weight:700; margin-bottom:4px;">Instrument Sans</div>
+      <div style="font-size:14px; color:var(--accent);">Inter Regular + Bold</div>
+    </div>
+    <div>
+      <div style="font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:0.1em; color:#555; margin-bottom:12px;">Tom</div>
+      <div style="font-size:14px; line-height:1.5; color:var(--accent);">Minimalista, premium, direto. Sem cores vibrantes.</div>
+    </div>
+  </div>
+
+  <div style="margin-top:64px; padding:24px 48px; border:1px solid var(--border); border-radius:12px; max-width:600px;">
+    <div style="font-size:13px; color:#555; line-height:1.6;">
+      <strong style="color:var(--white);">Regra:</strong> Se nao e preto, branco ou cinza — precisa ter uma funcao muito clara pra existir.
+    </div>
+  </div>
+
+  <div style="margin-top:64px; font-size:12px; color:#555; letter-spacing:0.1em; text-transform:uppercase;">
+    Vinci Tech &mdash; Brand Book 2026 &mdash; Design Squad
+  </div>
+</div>
+
+</body>
+</html>
