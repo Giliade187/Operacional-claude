@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>Carrossel — Tráfego + Claude Code</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: 'Inter', sans-serif;
+    background: #111;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 40px 20px;
+    gap: 24px;
+  }
+  .label {
+    color: #555;
+    font-size: 13px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    align-self: flex-start;
+    margin-left: calc(50% - 270px);
+  }
+  .slide {
+    width: 540px;
+    height: 675px;
+    position: relative;
+    overflow: hidden;
+    border-radius: 4px;
+    flex-shrink: 0;
+  }
+
+  /* ─── SLIDE 1 — CAPA ─── */
+  .s1 {
+    background: #0A0A0A;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 48px 44px;
+  }
+  .s1 .tag {
+    display: inline-block;
+    background: #FAFAFA;
+    color: #0A0A0A;
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    padding: 5px 12px;
+    border-radius: 100px;
+    width: fit-content;
+  }
+  .s1 h1 {
+    font-size: 44px;
+    font-weight: 900;
+    line-height: 1.05;
+    letter-spacing: -0.03em;
+    color: #FAFAFA;
+    text-transform: uppercase;
+  }
+  .s1 h1 span { color: #C8C8C8; }
+  .s1 .sub {
+    font-size: 15px;
+    color: #666;
+    line-height: 1.5;
+  }
+  .s1 .handle {
+    font-size: 13px;
+    font-weight: 600;
+    color: #444;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+
+  /* ─── SLIDE 2 — PROBLEMA ─── */
+  .s2 {
+    background: #FAFAFA;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 48px 44px;
+    gap: 28px;
+  }
+  .s2 .eyebrow {
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: #999;
+  }
+  .s2 h2 {
+    font-size: 34px;
+    font-weight: 900;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    color: #0A0A0A;
+    text-transform: uppercase;
+  }
+  .s2 p {
+    font-size: 16px;
+    line-height: 1.6;
+    color: #444;
+  }
+  .s2 .stat-row {
+    display: flex;
+    gap: 16px;
+  }
+  .s2 .stat {
+    flex: 1;
+    background: #0A0A0A;
+    border-radius: 8px;
+    padding: 16px;
+  }
+  .s2 .stat .num {
+    font-size: 28px;
+    font-weight: 900;
+    color: #FAFAFA;
+    letter-spacing: -0.03em;
+  }
+  .s2 .stat .txt {
+    font-size: 12px;
+    color: #888;
+    margin-top: 4px;
+    line-height: 1.4;
+  }
+
+  /* ─── SLIDE 3 — O QUE É ─── */
+  .s3 {
+    background: #0A0A0A;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 48px 44px;
+    gap: 32px;
+  }
+  .s3 .num {
+    font-size: 80px;
+    font-weight: 900;
+    color: #1E1E1E;
+    letter-spacing: -0.05em;
+    line-height: 1;
+  }
+  .s3 h2 {
+    font-size: 32px;
+    font-weight: 900;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    color: #FAFAFA;
+    text-transform: uppercase;
+  }
+  .s3 p {
+    font-size: 15px;
+    color: #888;
+    line-height: 1.6;
+  }
+
+  /* ─── SLIDE 4 — RELATÓRIO ─── */
+  .s4 {
+    background: #FAFAFA;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 48px 44px;
+  }
+  .s4 .step {
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: #999;
+  }
+  .s4 h2 {
+    font-size: 36px;
+    font-weight: 900;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    color: #0A0A0A;
+    text-transform: uppercase;
+  }
+  .s4 .box {
+    background: #0A0A0A;
+    border-radius: 10px;
+    padding: 20px 22px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .s4 .box .line {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .s4 .box .dot {
+    width: 6px;
+    height: 6px;
+    background: #FAFAFA;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+  .s4 .box span {
+    font-size: 14px;
+    color: #C8C8C8;
+    line-height: 1.4;
+  }
+  .s4 .time {
+    font-size: 13px;
+    color: #999;
+  }
+  .s4 .time strong { color: #0A0A0A; }
+
+  /* ─── SLIDE 5 — PROPOSTA ─── */
+  .s5 {
+    background: #0A0A0A;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 48px 44px;
+  }
+  .s5 .step {
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: #444;
+  }
+  .s5 h2 {
+    font-size: 36px;
+    font-weight: 900;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    color: #FAFAFA;
+    text-transform: uppercase;
+  }
+  .s5 .quote {
+    border-left: 3px solid #FAFAFA;
+    padding-left: 18px;
+  }
+  .s5 .quote p {
+    font-size: 15px;
+    color: #888;
+    line-height: 1.6;
+    font-style: italic;
+  }
+  .s5 .badge-row { display: flex; gap: 10px; flex-wrap: wrap; }
+  .s5 .badge {
+    background: #1E1E1E;
+    color: #C8C8C8;
+    font-size: 12px;
+    font-weight: 600;
+    padding: 6px 14px;
+    border-radius: 100px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  /* ─── SLIDE 6 — CRIATIVOS ─── */
+  .s6 {
+    background: #FAFAFA;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 48px 44px;
+  }
+  .s6 .step {
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: #999;
+  }
+  .s6 h2 {
+    font-size: 36px;
+    font-weight: 900;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    color: #0A0A0A;
+    text-transform: uppercase;
+  }
+  .s6 .items { display: flex; flex-direction: column; gap: 12px; }
+  .s6 .item {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    padding: 14px 16px;
+    background: #F5F5F5;
+    border-radius: 8px;
+  }
+  .s6 .item .icon {
+    font-size: 20px;
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+  .s6 .item h4 {
+    font-size: 13px;
+    font-weight: 700;
+    color: #0A0A0A;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    margin-bottom: 2px;
+  }
+  .s6 .item p { font-size: 12px; color: #666; line-height: 1.4; }
+
+  /* ─── SLIDE 7 — OPERAÇÃO ─── */
+  .s7 {
+    background: #0A0A0A;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 48px 44px;
+    gap: 24px;
+  }
+  .s7 .eyebrow {
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: #444;
+  }
+  .s7 h2 {
+    font-size: 36px;
+    font-weight: 900;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    color: #FAFAFA;
+    text-transform: uppercase;
+  }
+  .s7 p { font-size: 15px; color: #888; line-height: 1.6; }
+  .s7 .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+  .s7 .cell {
+    background: #141414;
+    border-radius: 8px;
+    padding: 14px 16px;
+  }
+  .s7 .cell .lbl { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: #555; margin-bottom: 4px; }
+  .s7 .cell .val { font-size: 14px; font-weight: 600; color: #FAFAFA; }
+
+  /* ─── SLIDE 8 — IMPLICAÇÃO ─── */
+  .s8 {
+    background: #FAFAFA;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 48px 44px;
+    gap: 28px;
+  }
+  .s8 h2 {
+    font-size: 38px;
+    font-weight: 900;
+    line-height: 1.05;
+    letter-spacing: -0.03em;
+    color: #0A0A0A;
+    text-transform: uppercase;
+  }
+  .s8 h2 span { color: #C8C8C8; }
+  .s8 p { font-size: 16px; color: #444; line-height: 1.6; }
+  .s8 .list { display: flex; flex-direction: column; gap: 10px; }
+  .s8 .list-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 14px;
+    font-weight: 600;
+    color: #0A0A0A;
+  }
+  .s8 .list-item::before {
+    content: '';
+    width: 20px;
+    height: 20px;
+    background: #0A0A0A;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+
+  /* ─── SLIDE 9 — CTA ─── */
+  .s9 {
+    background: #0A0A0A;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 48px 44px;
+    text-align: center;
+    align-items: center;
+  }
+  .s9 .logo {
+    font-size: 14px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: #444;
+  }
+  .s9 h2 {
+    font-size: 36px;
+    font-weight: 900;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    color: #FAFAFA;
+    text-transform: uppercase;
+  }
+  .s9 .cta-box {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    width: 100%;
+    align-items: center;
+  }
+  .s9 .btn {
+    background: #FAFAFA;
+    color: #0A0A0A;
+    font-size: 14px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    padding: 14px 32px;
+    border-radius: 6px;
+    width: 100%;
+  }
+  .s9 .handle {
+    font-size: 18px;
+    font-weight: 700;
+    color: #FAFAFA;
+    letter-spacing: -0.01em;
+  }
+  .s9 .sub { font-size: 13px; color: #555; }
+</style>
+</head>
+<body>
+
+<!-- SLIDE 1 — CAPA -->
+<div class="label">Slide 1 — Capa</div>
+<div class="slide s1">
+  <div class="tag">Tráfego + IA</div>
+  <h1>A IA que<br><span>substituiu</span><br>3 horas<br>do meu dia</h1>
+  <div>
+    <div class="sub">O que o Claude Code faz na operação de tráfego pago na prática</div>
+    <div style="height:16px"></div>
+    <div class="handle">@ogiliadebarth</div>
+  </div>
+</div>
+
+<!-- SLIDE 2 — PROBLEMA -->
+<div class="label">Slide 2 — O problema</div>
+<div class="slide s2">
+  <div class="eyebrow">A realidade</div>
+  <h2>Gestor de<br>tráfego vira<br>operador</h2>
+  <p>A maior parte do tempo de um gestor não vai pra estratégia. Vai pra tarefa repetitiva: relatório, proposta, roteiro, atualização de cliente. É operacional, não estratégico.</p>
+  <div class="stat-row">
+    <div class="stat">
+      <div class="num">3h+</div>
+      <div class="txt">gastas por semana só em relatório e proposta</div>
+    </div>
+    <div class="stat">
+      <div class="num">0x</div>
+      <div class="txt">essas horas geram resultado direto</div>
+    </div>
+  </div>
+</div>
+
+<!-- SLIDE 3 — O QUE É -->
+<div class="label">Slide 3 — O que é o Claude Code</div>
+<div class="slide s3">
+  <div class="num">01</div>
+  <div>
+    <h2>Claude Code<br>não é chatbot</h2>
+    <div style="height:16px"></div>
+    <p>É um agente que roda no seu computador, acessa seus arquivos, conecta com Notion, Gmail e Meta Ads, e executa tarefas completas com um comando. Ele lembra do contexto do seu negócio toda vez que você abre.</p>
+  </div>
+</div>
+
+<!-- SLIDE 4 — RELATÓRIO -->
+<div class="label">Slide 4 — Relatório</div>
+<div class="slide s4">
+  <div class="step">Caso de uso 01</div>
+  <h2>Relatório<br>de resultado<br>em 2 min</h2>
+  <div class="box">
+    <div class="line"><div class="dot"></div><span>Pega os dados do Meta Ads</span></div>
+    <div class="line"><div class="dot"></div><span>Calcula CPA, ROAS e CPM automaticamente</span></div>
+    <div class="line"><div class="dot"></div><span>Formata com a identidade do cliente</span></div>
+    <div class="line"><div class="dot"></div><span>Salva como PDF e manda por email</span></div>
+  </div>
+  <div class="time">Antes: <strong>45 min</strong>. Agora: <strong>2 min</strong>.</div>
+</div>
+
+<!-- SLIDE 5 — PROPOSTA -->
+<div class="label">Slide 5 — Proposta comercial</div>
+<div class="slide s5">
+  <div class="step">Caso de uso 02</div>
+  <h2>Proposta<br>personalizada<br>em segundos</h2>
+  <div class="quote">
+    <p>Falo o nome da empresa, o nicho e o que ela precisa. O Claude lembra do meu modelo de proposta, adapta pro contexto e gera o PDF completo. Cada proposta sai diferente, com linguagem do cliente.</p>
+  </div>
+  <div class="badge-row">
+    <div class="badge">Nome da empresa</div>
+    <div class="badge">Nicho</div>
+    <div class="badge">PDF pronto</div>
+  </div>
+</div>
+
+<!-- SLIDE 6 — CRIATIVOS -->
+<div class="label">Slide 6 — Criativos e roteiros</div>
+<div class="slide s6">
+  <div class="step">Caso de uso 03</div>
+  <h2>Criativos<br>e roteiros<br>na hora</h2>
+  <div class="items">
+    <div class="item">
+      <div class="icon">✍️</div>
+      <div>
+        <h4>Roteiro de anúncio</h4>
+        <p>Hook, desenvolvimento e CTA no padrão do cliente. UGC, direto ou comercial.</p>
+      </div>
+    </div>
+    <div class="item">
+      <div class="icon">🎯</div>
+      <div>
+        <h4>Carrossel de conteúdo</h4>
+        <p>Texto + design visual pronto pra postar no Instagram.</p>
+      </div>
+    </div>
+    <div class="item">
+      <div class="icon">📊</div>
+      <div>
+        <h4>Análise de campanha</h4>
+        <p>Lê os dados e já sugere o próximo teste a rodar.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- SLIDE 7 — OPERAÇÃO -->
+<div class="label">Slide 7 — Operação integrada</div>
+<div class="slide s7">
+  <div class="eyebrow">O sistema completo</div>
+  <h2>Tudo<br>conectado<br>na operação</h2>
+  <p>Notion, Gmail, Google Calendar e Meta Ads funcionam dentro do Claude. Ele lê tarefas, registra clientes, manda email e consulta campanha sem sair de uma tela.</p>
+  <div class="grid">
+    <div class="cell"><div class="lbl">CRM</div><div class="val">Notion</div></div>
+    <div class="cell"><div class="lbl">Campanhas</div><div class="val">Meta Ads</div></div>
+    <div class="cell"><div class="lbl">Comunicação</div><div class="val">Gmail</div></div>
+    <div class="cell"><div class="lbl">Agenda</div><div class="val">G. Calendar</div></div>
+  </div>
+</div>
+
+<!-- SLIDE 8 — IMPLICAÇÃO -->
+<div class="label">Slide 8 — O que muda</div>
+<div class="slide s8">
+  <h2>Você para<br>de operar<br><span>e começa<br>a escalar</span></h2>
+  <p>Com as horas que você salva todo mês, você pode pegar mais clientes, testar mais campanhas ou simplesmente parar de trabalhar de madrugada.</p>
+  <div class="list">
+    <div class="list-item">Mais clientes, menos horas operacionais</div>
+    <div class="list-item">Entrega consistente sem depender de memória</div>
+    <div class="list-item">Processo que escala sem contratar</div>
+  </div>
+</div>
+
+<!-- SLIDE 9 — CTA -->
+<div class="label">Slide 9 — CTA</div>
+<div class="slide s9">
+  <div class="logo">@ogiliadebarth</div>
+  <h2>Quer montar<br>essa operação<br>também?</h2>
+  <div class="cta-box">
+    <div class="btn">Segue o perfil pra ver mais</div>
+    <div class="handle">@ogiliadebarth</div>
+    <div class="sub">Tráfego pago + IA na prática</div>
+  </div>
+</div>
+
+</body>
+</html>
