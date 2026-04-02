@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>G.L Tráfego — Brandbook Preview</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif; background: #000; color: #fff; }
+  .section { padding: 80px 48px; max-width: 1200px; margin: 0 auto; }
+  .section + .section { border-top: 1px solid #1A1A1A; }
+  h1 { font-size: 48px; font-weight: 700; line-height: 1.1; margin-bottom: 12px; }
+  h2 { font-size: 36px; font-weight: 700; line-height: 1.15; margin-bottom: 32px; }
+  h3 { font-size: 24px; font-weight: 600; line-height: 1.2; margin-bottom: 16px; }
+  h4 { font-size: 20px; font-weight: 600; line-height: 1.3; margin-bottom: 12px; }
+  p { font-size: 16px; line-height: 1.6; color: #B0B0B0; margin-bottom: 16px; }
+  .overline { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 3px; color: #6B6B6B; margin-bottom: 8px; }
+
+  /* HERO */
+  .hero { min-height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 48px; }
+  .logo-main { margin-bottom: 16px; }
+  .logo-main .gl { font-size: 120px; font-weight: 700; letter-spacing: -2px; line-height: 1; }
+  .logo-main .trafego { font-size: 32px; font-weight: 500; letter-spacing: 12px; text-transform: uppercase; color: #B0B0B0; }
+  .hero .tagline { font-size: 20px; color: #6B6B6B; margin-top: 40px; }
+
+  /* LOGO VARIATIONS */
+  .logo-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; margin-top: 24px; }
+  .logo-card { background: #111; border: 1px solid #2A2A2A; border-radius: 8px; padding: 48px 32px; display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 200px; }
+  .logo-card.light { background: #F5F5F5; }
+  .logo-card .label { font-size: 12px; font-weight: 500; color: #6B6B6B; margin-top: 24px; text-transform: uppercase; letter-spacing: 2px; }
+  .logo-card.light .label { color: #8A8A8A; }
+  .logo-v1 .gl { font-size: 64px; font-weight: 700; line-height: 1; }
+  .logo-v1 .trafego { font-size: 16px; font-weight: 500; letter-spacing: 8px; text-transform: uppercase; color: #B0B0B0; }
+  .logo-v2 { font-size: 28px; font-weight: 700; }
+  .logo-v2 span { font-weight: 500; letter-spacing: 6px; font-size: 28px; }
+  .logo-v3 { width: 80px; height: 80px; background: #000; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 32px; font-weight: 700; }
+  .logo-card.light .logo-v3 { background: #000; color: #fff; }
+  .logo-card.light .logo-v1 .gl, .logo-card.light .logo-v2 { color: #000; }
+  .logo-card.light .logo-v1 .trafego { color: #6B6B6B; }
+
+  /* COLORS */
+  .color-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(120px, 1fr)); gap: 12px; margin-top: 16px; }
+  .color-swatch { border-radius: 8px; overflow: hidden; }
+  .color-swatch .preview { height: 80px; border: 1px solid #2A2A2A; border-radius: 8px 8px 0 0; }
+  .color-swatch .info { padding: 8px 12px; background: #111; border: 1px solid #2A2A2A; border-top: none; border-radius: 0 0 8px 8px; }
+  .color-swatch .info .name { font-size: 12px; font-weight: 600; }
+  .color-swatch .info .hex { font-size: 11px; color: #6B6B6B; }
+
+  /* TYPOGRAPHY */
+  .type-sample { margin-bottom: 24px; padding-bottom: 24px; border-bottom: 1px solid #1A1A1A; }
+  .type-sample:last-child { border-bottom: none; }
+  .type-meta { font-size: 12px; color: #6B6B6B; margin-bottom: 4px; }
+
+  /* SPACING */
+  .spacing-demo { display: flex; align-items: flex-end; gap: 12px; flex-wrap: wrap; margin-top: 16px; }
+  .space-block { background: #fff; border-radius: 4px; display: flex; align-items: flex-end; justify-content: center; }
+  .space-label { font-size: 10px; color: #6B6B6B; text-align: center; margin-top: 4px; }
+
+  /* BUTTONS */
+  .btn-row { display: flex; gap: 16px; flex-wrap: wrap; margin-top: 16px; align-items: center; }
+  .btn { padding: 12px 24px; border-radius: 8px; font-size: 14px; font-weight: 500; text-transform: uppercase; letter-spacing: 1px; cursor: pointer; border: none; transition: all 0.2s; display: inline-block; text-decoration: none; }
+  .btn-primary { background: #fff; color: #000; }
+  .btn-primary:hover { background: #E0E0E0; }
+  .btn-secondary { background: transparent; color: #fff; border: 1px solid #fff; }
+  .btn-secondary:hover { background: rgba(255,255,255,0.08); }
+  .btn-ghost { background: transparent; color: #fff; }
+  .btn-ghost:hover { background: rgba(255,255,255,0.05); }
+  .btn-disabled { background: #2A2A2A; color: #6B6B6B; cursor: not-allowed; }
+
+  /* CARDS */
+  .card-demo { background: #111; border: 1px solid #2A2A2A; border-radius: 8px; padding: 24px; margin-top: 16px; max-width: 400px; }
+  .card-demo h4 { margin-bottom: 8px; }
+  .card-demo p { font-size: 14px; color: #8A8A8A; margin-bottom: 16px; }
+
+  /* INPUT */
+  .input-demo { background: #0A0A0A; border: 1px solid #2A2A2A; border-radius: 8px; padding: 12px 16px; color: #fff; font-family: 'Inter', sans-serif; font-size: 16px; width: 100%; max-width: 400px; outline: none; margin-top: 16px; }
+  .input-demo:focus { border-color: #fff; }
+  .input-label { font-size: 14px; font-weight: 500; margin-bottom: 6px; display: block; margin-top: 16px; }
+
+  /* SOCIAL MOCKUP */
+  .social-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px; margin-top: 24px; }
+  .social-post { width: 100%; aspect-ratio: 1; background: #000; border: 1px solid #2A2A2A; border-radius: 8px; display: flex; flex-direction: column; justify-content: center; align-items: center; padding: 48px; text-align: center; position: relative; }
+  .social-post .post-overline { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 3px; color: #6B6B6B; margin-bottom: 16px; }
+  .social-post .post-headline { font-size: 28px; font-weight: 700; line-height: 1.15; margin-bottom: 12px; }
+  .social-post .post-sub { font-size: 14px; color: #8A8A8A; margin-bottom: 24px; }
+  .social-post .post-cta { background: #fff; color: #000; padding: 10px 20px; border-radius: 8px; font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 1.5px; }
+  .social-post .post-logo { position: absolute; bottom: 20px; right: 20px; font-size: 14px; font-weight: 700; color: #3A3A3A; }
+
+  /* PROPOSAL MOCKUP */
+  .proposal-cover { background: #000; border: 1px solid #2A2A2A; border-radius: 8px; padding: 64px 48px; display: flex; flex-direction: column; justify-content: center; align-items: center; min-height: 400px; text-align: center; }
+  .proposal-cover .prop-gl { font-size: 72px; font-weight: 700; margin-bottom: 8px; }
+  .proposal-cover .prop-trafego { font-size: 18px; font-weight: 500; letter-spacing: 8px; color: #B0B0B0; text-transform: uppercase; margin-bottom: 48px; }
+  .proposal-cover .prop-client { font-size: 14px; color: #6B6B6B; letter-spacing: 2px; text-transform: uppercase; }
+  .proposal-cover .prop-line { width: 40px; height: 1px; background: #2A2A2A; margin: 24px auto; }
+
+  /* DO DONT */
+  .dodont-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-top: 24px; }
+  .dodont-card { border-radius: 8px; padding: 24px; }
+  .dodont-card.do { background: rgba(34,197,94,0.08); border: 1px solid rgba(34,197,94,0.2); }
+  .dodont-card.dont { background: rgba(239,68,68,0.08); border: 1px solid rgba(239,68,68,0.2); }
+  .dodont-card h4 { margin-bottom: 12px; }
+  .dodont-card.do h4 { color: #22C55E; }
+  .dodont-card.dont h4 { color: #EF4444; }
+  .dodont-card ul { list-style: none; padding: 0; }
+  .dodont-card li { font-size: 14px; color: #B0B0B0; padding: 4px 0; padding-left: 20px; position: relative; }
+  .dodont-card.do li::before { content: "✓"; position: absolute; left: 0; color: #22C55E; font-weight: 700; }
+  .dodont-card.dont li::before { content: "✗"; position: absolute; left: 0; color: #EF4444; font-weight: 700; }
+
+  @media (max-width: 768px) {
+    .section { padding: 48px 24px; }
+    .hero .logo-main .gl { font-size: 72px; }
+    .hero .logo-main .trafego { font-size: 20px; letter-spacing: 8px; }
+    h2 { font-size: 28px; }
+    .dodont-grid { grid-template-columns: 1fr; }
+    .social-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="overline">Brandbook 2026</div>
+  <div class="logo-main">
+    <div class="gl">G.L</div>
+    <div class="trafego">Tráfego</div>
+  </div>
+  <div class="tagline">Tráfego que vende.</div>
+</section>
+
+<!-- LOGO VARIATIONS -->
+<section class="section">
+  <div class="overline">Logotipo</div>
+  <h2>Variações do Logo</h2>
+  <p>O logotipo é tipográfico, construído com Inter Bold. Quatro versões para diferentes contextos.</p>
+  <div class="logo-grid">
+    <div class="logo-card">
+      <div class="logo-v1">
+        <div class="gl">G.L</div>
+        <div class="trafego">Tráfego</div>
+      </div>
+      <div class="label">Principal (escuro)</div>
+    </div>
+    <div class="logo-card light">
+      <div class="logo-v1">
+        <div class="gl">G.L</div>
+        <div class="trafego">Tráfego</div>
+      </div>
+      <div class="label">Principal (claro)</div>
+    </div>
+    <div class="logo-card">
+      <div class="logo-v2">G.L <span>TRÁFEGO</span></div>
+      <div class="label">Compacta</div>
+    </div>
+    <div class="logo-card">
+      <div class="logo-v3">G.L</div>
+      <div class="label">Ícone / Favicon</div>
+    </div>
+  </div>
+</section>
+
+<!-- COLORS -->
+<section class="section">
+  <div class="overline">Cores</div>
+  <h2>Paleta de Cores</h2>
+
+  <h3>Primárias</h3>
+  <div class="color-grid">
+    <div class="color-swatch"><div class="preview" style="background:#000"></div><div class="info"><div class="name">Black</div><div class="hex">#000000</div></div></div>
+    <div class="color-swatch"><div class="preview" style="background:#fff"></div><div class="info"><div class="name">White</div><div class="hex">#FFFFFF</div></div></div>
+  </div>
+
+  <h3 style="margin-top:32px">Neutras</h3>
+  <div class="color-grid">
+    <div class="color-swatch"><div class="preview" style="background:#0A0A0A"></div><div class="info"><div class="name">950</div><div class="hex">#0A0A0A</div></div></div>
+    <div class="color-swatch"><div class="preview" style="background:#111"></div><div class="info"><div class="name">900</div><div class="hex">#111111</div></div></div>
+    <div class="color-swatch"><div class="preview" style="background:#1A1A1A"></div><div class="info"><div class="name">800</div><div class="hex">#1A1A1A</div></div></div>
+    <div class="color-swatch"><div class="preview" style="background:#2A2A2A"></div><div class="info"><div class="name">700</div><div class="hex">#2A2A2A</div></div></div>
+    <div class="color-swatch"><div class="preview" style="background:#3A3A3A"></div><div class="info"><div class="name">600</div><div class="hex">#3A3A3A</div></div></div>
+    <div class="color-swatch"><div class="preview" style="background:#6B6B6B"></div><div class="info"><div class="name">500</div><div class="hex">#6B6B6B</div></div></div>
+    <div class="color-swatch"><div class="preview" style="background:#8A8A8A"></div><div class="info"><div class="name">400</div><div class="hex">#8A8A8A</div></div></div>
+    <div class="color-swatch"><div class="preview" style="background:#B0B0B0"></div><div class="info"><div class="name">300</div><div class="hex">#B0B0B0</div></div></div>
+    <div class="color-swatch"><div class="preview" style="background:#D4D4D4"></div><div class="info"><div class="name">200</div><div class="hex">#D4D4D4</div></div></div>
+    <div class="color-swatch"><div class="preview" style="background:#EDEDED"></div><div class="info"><div class="name">100</div><div class="hex">#EDEDED</div></div></div>
+    <div class="color-swatch"><div class="preview" style="background:#F5F5F5"></div><div class="info"><div class="name">50</div><div class="hex">#F5F5F5</div></div></div>
+  </div>
+
+  <h3 style="margin-top:32px">Semânticas (só feedback)</h3>
+  <div class="color-grid">
+    <div class="color-swatch"><div class="preview" style="background:#22C55E"></div><div class="info"><div class="name">Success</div><div class="hex">#22C55E</div></div></div>
+    <div class="color-swatch"><div class="preview" style="background:#EAB308"></div><div class="info"><div class="name">Warning</div><div class="hex">#EAB308</div></div></div>
+    <div class="color-swatch"><div class="preview" style="background:#EF4444"></div><div class="info"><div class="name">Error</div><div class="hex">#EF4444</div></div></div>
+  </div>
+</section>
+
+<!-- TYPOGRAPHY -->
+<section class="section">
+  <div class="overline">Tipografia</div>
+  <h2>Escala Tipográfica</h2>
+
+  <div class="type-sample">
+    <div class="type-meta">heading-1 · 48px · Bold 700 · LH 1.1</div>
+    <div style="font-size:48px;font-weight:700;line-height:1.1">Tráfego que vende</div>
+  </div>
+  <div class="type-sample">
+    <div class="type-meta">heading-2 · 36px · Bold 700 · LH 1.15</div>
+    <div style="font-size:36px;font-weight:700;line-height:1.15">Previsibilidade de vendas</div>
+  </div>
+  <div class="type-sample">
+    <div class="type-meta">heading-3 · 24px · Semibold 600 · LH 1.2</div>
+    <div style="font-size:24px;font-weight:600;line-height:1.2">Estrutura comercial completa</div>
+  </div>
+  <div class="type-sample">
+    <div class="type-meta">heading-4 · 20px · Semibold 600 · LH 1.3</div>
+    <div style="font-size:20px;font-weight:600;line-height:1.3">Gestão de tráfego pago</div>
+  </div>
+  <div class="type-sample">
+    <div class="type-meta">body · 16px · Regular 400 · LH 1.6</div>
+    <div style="font-size:16px;font-weight:400;line-height:1.6;color:#B0B0B0">Ajudamos empresas a transformar atendimento em vendas previsíveis com tráfego pago e estrutura comercial.</div>
+  </div>
+  <div class="type-sample">
+    <div class="type-meta">body-sm · 14px · Regular 400 · LH 1.5</div>
+    <div style="font-size:14px;font-weight:400;line-height:1.5;color:#8A8A8A">Meta Ads, Google Ads, funis de conversão e processo de atendimento.</div>
+  </div>
+  <div class="type-sample">
+    <div class="type-meta">caption · 12px · Medium 500 · LH 1.4</div>
+    <div style="font-size:12px;font-weight:500;line-height:1.4;color:#6B6B6B">Relatório mensal · Abril 2026</div>
+  </div>
+  <div class="type-sample">
+    <div class="type-meta">overline · 12px · Bold 700 · Uppercase · Tracking +3px</div>
+    <div style="font-size:12px;font-weight:700;line-height:1;text-transform:uppercase;letter-spacing:3px;color:#6B6B6B">Resultados do mês</div>
+  </div>
+</section>
+
+<!-- COMPONENTS -->
+<section class="section">
+  <div class="overline">Componentes</div>
+  <h2>Botões</h2>
+  <div class="btn-row">
+    <a class="btn btn-primary">Falar com consultor</a>
+    <a class="btn btn-secondary">Ver proposta</a>
+    <a class="btn btn-ghost">Saiba mais</a>
+    <a class="btn btn-disabled">Indisponível</a>
+  </div>
+
+  <h3 style="margin-top:48px">Card</h3>
+  <div class="card-demo">
+    <div class="overline">Resultado</div>
+    <h4>+347% em leads qualificados</h4>
+    <p>Cliente do setor de serviços. 90 dias de gestão com otimização contínua.</p>
+    <a class="btn btn-primary" style="font-size:12px;padding:8px 16px">Ver case completo</a>
+  </div>
+
+  <h3 style="margin-top:48px">Input</h3>
+  <label class="input-label">Nome da empresa</label>
+  <input class="input-demo" type="text" placeholder="Ex: Clínica Renova">
+</section>
+
+<!-- SOCIAL MOCKUPS -->
+<section class="section">
+  <div class="overline">Aplicações</div>
+  <h2>Redes Sociais</h2>
+  <p>Exemplos de como o sistema visual se aplica em posts para Instagram.</p>
+  <div class="social-grid">
+    <div class="social-post">
+      <div class="post-overline">Tráfego Pago</div>
+      <div class="post-headline">Seus anúncios geram cliques.<br>Mas geram vendas?</div>
+      <div class="post-sub">A diferença está na estrutura.</div>
+      <div class="post-cta">Fale comigo</div>
+      <div class="post-logo">G.L</div>
+    </div>
+    <div class="social-post" style="background:#111">
+      <div class="post-overline">Case de sucesso</div>
+      <div class="post-headline" style="font-size:64px;font-weight:700">+R$47K</div>
+      <div class="post-sub">em vendas no primeiro mês com estrutura de tráfego + WhatsApp</div>
+      <div class="post-cta">Quero resultado assim</div>
+      <div class="post-logo">G.L</div>
+    </div>
+  </div>
+</section>
+
+<!-- PROPOSAL MOCKUP -->
+<section class="section">
+  <div class="overline">Aplicações</div>
+  <h2>Proposta Comercial — Capa</h2>
+  <div class="proposal-cover">
+    <div class="prop-gl">G.L</div>
+    <div class="prop-trafego">Tráfego</div>
+    <div class="prop-line"></div>
+    <div class="prop-client">Proposta para</div>
+    <div style="font-size:20px;font-weight:600;margin-top:8px">Clínica Renova</div>
+    <div style="font-size:12px;color:#6B6B6B;margin-top:24px">Abril 2026</div>
+  </div>
+</section>
+
+<!-- DO's DON'Ts -->
+<section class="section">
+  <div class="overline">Regras</div>
+  <h2>Do's e Don'ts</h2>
+  <div class="dodont-grid">
+    <div class="dodont-card do">
+      <h4>Faça</h4>
+      <ul>
+        <li>Respeite a área de proteção do logo</li>
+        <li>Mantenha contraste alto (branco/preto)</li>
+        <li>Use no máximo 3 pesos tipográficos</li>
+        <li>Deixe espaço em branco generoso</li>
+        <li>Alinhe à esquerda por padrão</li>
+        <li>Use cores semânticas só para dados</li>
+      </ul>
+    </div>
+    <div class="dodont-card dont">
+      <h4>Não faça</h4>
+      <ul>
+        <li>Distorcer ou rotacionar o logo</li>
+        <li>Usar fundo colorido vibrante</li>
+        <li>Usar fontes fora de Inter/Helvetica</li>
+        <li>Mais de 2 tamanhos de heading por peça</li>
+        <li>Sombras pesadas ou drop shadows</li>
+        <li>Degradê com cores — só preto/cinza</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<footer style="padding:48px;text-align:center;border-top:1px solid #1A1A1A">
+  <div style="font-size:24px;font-weight:700">G.L</div>
+  <div style="font-size:11px;font-weight:500;letter-spacing:6px;text-transform:uppercase;color:#6B6B6B;margin-top:4px">Tráfego</div>
+  <div style="font-size:12px;color:#3A3A3A;margin-top:24px">Brandbook v1.0 · Abril 2026</div>
+</footer>
+
+</body>
+</html>
