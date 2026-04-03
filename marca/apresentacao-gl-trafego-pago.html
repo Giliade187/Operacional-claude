@@ -1,0 +1,1633 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>G.L Tráfego Pago — Brand Identity 2026</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+  :root {
+    --black: #000000;
+    --black-soft: #0A0A0A;
+    --card: #111111;
+    --border: #1A1A1A;
+    --border-md: #2A2A2A;
+    --text-muted: #3A3A3A;
+    --text-secondary: #6B6B6B;
+    --text-dim: #8A8A8A;
+    --white: #FFFFFF;
+    --off-white: #F5F5F5;
+    --success: #22C55E;
+    --warning: #EAB308;
+    --danger: #EF4444;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Inter', -apple-system, sans-serif;
+    background: var(--black);
+    color: var(--white);
+    overflow-x: hidden;
+  }
+
+  /* ============ SLIDE SYSTEM ============ */
+  .slide {
+    min-height: 100vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 80px 64px;
+    border-bottom: 1px solid var(--border);
+    position: relative;
+  }
+
+  .slide-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+  }
+
+  .slide-number {
+    position: absolute;
+    top: 40px;
+    right: 64px;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    color: var(--text-muted);
+    text-transform: uppercase;
+  }
+
+  .overline {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin-bottom: 24px;
+  }
+
+  /* ============ SLIDE 1 — COVER ============ */
+  #cover {
+    background: var(--black);
+    justify-content: space-between;
+    align-items: stretch;
+    padding: 0;
+  }
+
+  .cover-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    min-height: 100vh;
+  }
+
+  .cover-left {
+    background: var(--black);
+    padding: 80px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border-right: 1px solid var(--border);
+  }
+
+  .cover-right {
+    background: var(--white);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 80px;
+  }
+
+  .cover-logo-text {
+    flex: 1;
+    display: flex;
+    align-items: center;
+  }
+
+  .cover-wordmark {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .cover-gl {
+    font-size: 120px;
+    font-weight: 900;
+    letter-spacing: -4px;
+    line-height: 1;
+    color: var(--white);
+  }
+
+  .cover-subtitle-text {
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 10px;
+    color: var(--text-secondary);
+    text-transform: uppercase;
+    margin-top: 8px;
+  }
+
+  .cover-tagline {
+    font-size: 22px;
+    font-weight: 300;
+    color: var(--text-secondary);
+    line-height: 1.4;
+  }
+
+  .cover-tagline strong {
+    color: var(--white);
+    font-weight: 600;
+  }
+
+  .cover-meta {
+    display: flex;
+    gap: 32px;
+  }
+
+  .cover-meta-item {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .cover-meta-label {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--text-muted);
+  }
+
+  .cover-meta-value {
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--text-secondary);
+  }
+
+  /* ============ SLIDE 2 — POSICIONAMENTO ============ */
+  #posicionamento {
+    background: var(--black-soft);
+  }
+
+  .positioning-statement {
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin-bottom: 32px;
+  }
+
+  .positioning-headline {
+    font-size: clamp(36px, 5vw, 72px);
+    font-weight: 800;
+    line-height: 1.05;
+    letter-spacing: -2px;
+    max-width: 900px;
+    margin-bottom: 48px;
+  }
+
+  .positioning-headline .highlight {
+    color: var(--text-secondary);
+  }
+
+  .positioning-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: var(--border);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    overflow: hidden;
+    max-width: 900px;
+  }
+
+  .positioning-item {
+    background: var(--black);
+    padding: 32px;
+  }
+
+  .positioning-item-label {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin-bottom: 12px;
+  }
+
+  .positioning-item-text {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--white);
+    line-height: 1.4;
+  }
+
+  /* ============ SLIDE 3 — LOGOTIPO ============ */
+  #logo-section {
+    background: var(--black);
+  }
+
+  .logo-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1px;
+    background: var(--border);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    overflow: hidden;
+    margin-top: 48px;
+  }
+
+  .logo-panel {
+    padding: 80px 64px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 360px;
+  }
+
+  .logo-panel.dark { background: var(--black); }
+  .logo-panel.light { background: var(--off-white); }
+
+  .logo-variations {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1px;
+    background: var(--border);
+    border: 1px solid var(--border);
+    border-bottom-left-radius: 12px;
+    border-bottom-right-radius: 12px;
+    overflow: hidden;
+    margin-top: -1px;
+  }
+
+  .logo-var {
+    background: var(--black);
+    padding: 40px 24px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    min-height: 160px;
+  }
+
+  .logo-var.on-light { background: var(--off-white); }
+
+  .logo-var-label {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--text-muted);
+  }
+
+  .logo-var.on-light .logo-var-label { color: #999; }
+
+  .logo-rules {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    margin-top: 32px;
+    max-width: 900px;
+  }
+
+  .logo-rule {
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
+  }
+
+  .logo-rule-icon {
+    width: 32px;
+    height: 32px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    font-weight: 700;
+    flex-shrink: 0;
+  }
+
+  .logo-rule-icon.do { background: rgba(34,197,94,0.15); color: #22C55E; }
+  .logo-rule-icon.dont { background: rgba(239,68,68,0.15); color: #EF4444; }
+
+  .logo-rule-text {
+    font-size: 13px;
+    color: var(--text-secondary);
+    line-height: 1.5;
+    padding-top: 6px;
+  }
+
+  /* ============ SLIDE 4 — CORES ============ */
+  #cores {
+    background: var(--black-soft);
+  }
+
+  .color-system {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 32px;
+    margin-top: 48px;
+  }
+
+  .color-group h3 {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin-bottom: 16px;
+  }
+
+  .color-swatches {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid var(--border);
+  }
+
+  .swatch {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 14px 20px;
+    background: var(--black);
+  }
+
+  .swatch-dot {
+    width: 32px;
+    height: 32px;
+    border-radius: 8px;
+    border: 1px solid var(--border);
+    flex-shrink: 0;
+  }
+
+  .swatch-info { flex: 1; }
+  .swatch-name {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--white);
+    margin-bottom: 2px;
+  }
+  .swatch-hex {
+    font-size: 11px;
+    font-weight: 500;
+    color: var(--text-secondary);
+    font-feature-settings: "tnum";
+  }
+
+  .swatch-role {
+    font-size: 11px;
+    color: var(--text-muted);
+    text-align: right;
+    max-width: 140px;
+    line-height: 1.3;
+  }
+
+  .semantic-colors {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2px;
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid var(--border);
+    margin-top: 16px;
+  }
+
+  .sem-color {
+    padding: 20px;
+    background: var(--black);
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .sem-dot {
+    width: 40px;
+    height: 6px;
+    border-radius: 99px;
+  }
+
+  .sem-name { font-size: 12px; font-weight: 600; color: var(--white); }
+  .sem-hex { font-size: 11px; color: var(--text-secondary); }
+  .sem-use { font-size: 11px; color: var(--text-muted); }
+
+  /* ============ SLIDE 5 — TIPOGRAFIA ============ */
+  #tipografia {
+    background: var(--black);
+  }
+
+  .type-showcase {
+    margin-top: 48px;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    overflow: hidden;
+  }
+
+  .type-row {
+    display: grid;
+    grid-template-columns: 200px 1fr 100px 80px;
+    align-items: center;
+    gap: 24px;
+    padding: 24px 32px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .type-row:last-child { border-bottom: none; }
+
+  .type-meta { display: flex; flex-direction: column; gap: 4px; }
+  .type-token { font-size: 10px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--text-muted); }
+  .type-spec { font-size: 11px; color: var(--text-secondary); }
+
+  .type-sample { color: var(--white); line-height: 1.2; }
+  .type-weight-label { font-size: 11px; color: var(--text-secondary); text-align: right; }
+  .type-use { font-size: 11px; color: var(--text-muted); text-align: right; }
+
+  .tracking-demo {
+    margin-top: 32px;
+    padding: 32px;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .tracking-label { font-size: 10px; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; color: var(--text-muted); }
+
+  /* ============ SLIDE 6 — CRIATIVOS ============ */
+  #criativos {
+    background: var(--black-soft);
+  }
+
+  .creatives-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    margin-top: 48px;
+  }
+
+  .creative-card {
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid var(--border);
+  }
+
+  .creative-label {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    padding: 16px 20px 12px;
+    border-bottom: 1px solid var(--border);
+    background: var(--black);
+  }
+
+  /* Post Instagram */
+  .mock-post {
+    background: var(--black);
+    aspect-ratio: 1;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .mock-post-overline {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--text-muted);
+  }
+
+  .mock-post-headline {
+    font-size: 28px;
+    font-weight: 800;
+    line-height: 1.1;
+    letter-spacing: -0.5px;
+  }
+
+  .mock-post-body {
+    font-size: 13px;
+    color: var(--text-secondary);
+    line-height: 1.5;
+  }
+
+  .mock-post-cta {
+    display: inline-block;
+    background: var(--white);
+    color: var(--black);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    padding: 12px 24px;
+    border-radius: 6px;
+    align-self: flex-start;
+  }
+
+  /* Story */
+  .mock-story {
+    background: var(--black);
+    aspect-ratio: 9/16;
+    max-height: 400px;
+    padding: 32px 28px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .mock-story-top {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .mock-story-profile {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .mock-avatar {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: var(--white);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 10px;
+    font-weight: 800;
+    color: var(--black);
+    flex-shrink: 0;
+  }
+
+  .mock-username { font-size: 12px; font-weight: 600; }
+
+  .mock-story-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 16px;
+    padding: 24px 0;
+  }
+
+  .mock-story-tag {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--text-muted);
+  }
+
+  .mock-story-headline {
+    font-size: 32px;
+    font-weight: 900;
+    line-height: 1.05;
+    letter-spacing: -1px;
+  }
+
+  .mock-story-sub {
+    font-size: 14px;
+    color: var(--text-secondary);
+    line-height: 1.4;
+  }
+
+  .mock-story-cta {
+    background: var(--white);
+    color: var(--black);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    padding: 14px 20px;
+    border-radius: 8px;
+    text-align: center;
+  }
+
+  /* Proposta */
+  .mock-proposta {
+    background: var(--black);
+    padding: 40px 32px;
+    min-height: 320px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .mock-proposta-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+
+  .mock-proposta-title {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin-bottom: 8px;
+  }
+
+  .mock-proposta-client {
+    font-size: 22px;
+    font-weight: 700;
+  }
+
+  .mock-proposta-logo {
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 2px;
+    color: var(--text-secondary);
+  }
+
+  .mock-proposta-divider {
+    height: 1px;
+    background: var(--border);
+    margin: 24px 0;
+  }
+
+  .mock-proposta-items {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .mock-proposta-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .mock-proposta-item-name {
+    font-size: 13px;
+    color: var(--text-secondary);
+  }
+
+  .mock-proposta-item-value {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--white);
+  }
+
+  .mock-proposta-total {
+    margin-top: 16px;
+    padding-top: 16px;
+    border-top: 1px solid var(--border-md);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .mock-proposta-total-label {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--text-secondary);
+  }
+
+  .mock-proposta-total-value {
+    font-size: 24px;
+    font-weight: 800;
+    color: var(--white);
+  }
+
+  /* ============ SLIDE 7 — APLICAÇÕES ============ */
+  #aplicacoes {
+    background: var(--black);
+  }
+
+  .apps-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    margin-top: 48px;
+  }
+
+  .app-card {
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    overflow: hidden;
+  }
+
+  .app-card-header {
+    padding: 16px 24px;
+    border-bottom: 1px solid var(--border);
+    background: var(--black);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .app-card-title {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--text-muted);
+  }
+
+  .app-card-badge {
+    font-size: 10px;
+    font-weight: 600;
+    color: var(--text-secondary);
+    background: var(--card);
+    padding: 4px 10px;
+    border-radius: 99px;
+    border: 1px solid var(--border);
+  }
+
+  /* Relatório mock */
+  .mock-relatorio {
+    background: var(--black-soft);
+    padding: 32px;
+  }
+
+  .mock-rel-period {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin-bottom: 4px;
+  }
+
+  .mock-rel-client {
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 24px;
+  }
+
+  .mock-rel-stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    margin-bottom: 24px;
+  }
+
+  .mock-stat {
+    background: var(--black);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 16px;
+  }
+
+  .mock-stat-label {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin-bottom: 6px;
+  }
+
+  .mock-stat-value {
+    font-size: 22px;
+    font-weight: 800;
+    color: var(--white);
+    letter-spacing: -0.5px;
+  }
+
+  .mock-stat-delta {
+    font-size: 11px;
+    font-weight: 600;
+    margin-top: 4px;
+  }
+
+  .delta-up { color: #22C55E; }
+  .delta-down { color: #EF4444; }
+
+  .mock-rel-analysis {
+    background: var(--black);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 20px;
+  }
+
+  .mock-rel-analysis h4 {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin-bottom: 12px;
+  }
+
+  .mock-rel-analysis p {
+    font-size: 13px;
+    color: var(--text-secondary);
+    line-height: 1.6;
+  }
+
+  /* Anúncio mock */
+  .mock-ad {
+    background: var(--black);
+    padding: 32px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .mock-ad-tag {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    color: var(--text-muted);
+    text-transform: uppercase;
+  }
+
+  .mock-ad-hook {
+    font-size: 28px;
+    font-weight: 800;
+    line-height: 1.1;
+    letter-spacing: -0.5px;
+  }
+
+  .mock-ad-hook .striked {
+    text-decoration: line-through;
+    color: var(--text-muted);
+  }
+
+  .mock-ad-body {
+    font-size: 14px;
+    color: var(--text-secondary);
+    line-height: 1.6;
+  }
+
+  .mock-ad-proof {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 16px;
+    background: var(--card);
+    border-radius: 8px;
+    border: 1px solid var(--border);
+  }
+
+  .mock-proof-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: var(--border-md);
+    flex-shrink: 0;
+  }
+
+  .mock-proof-text { font-size: 12px; color: var(--text-secondary); line-height: 1.4; }
+  .mock-proof-text strong { color: var(--white); }
+
+  .mock-ad-cta {
+    background: var(--white);
+    color: var(--black);
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    padding: 16px 24px;
+    border-radius: 8px;
+    text-align: center;
+  }
+
+  /* ============ SLIDE 8 — MENSAGENS-CHAVE ============ */
+  #mensagens {
+    background: var(--black-soft);
+  }
+
+  .messages-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+    margin-top: 48px;
+  }
+
+  .message-card {
+    background: var(--black);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 36px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .message-card.featured {
+    grid-column: span 2;
+    background: var(--white);
+    border-color: var(--white);
+  }
+
+  .message-type {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--text-muted);
+  }
+
+  .message-card.featured .message-type { color: #999; }
+
+  .message-text {
+    font-size: 22px;
+    font-weight: 700;
+    line-height: 1.3;
+    letter-spacing: -0.3px;
+    color: var(--white);
+  }
+
+  .message-card.featured .message-text {
+    font-size: 36px;
+    color: var(--black);
+    letter-spacing: -1px;
+    line-height: 1.1;
+  }
+
+  .message-context {
+    font-size: 13px;
+    color: var(--text-secondary);
+    line-height: 1.5;
+  }
+
+  .message-card.featured .message-context { color: #666; }
+
+  /* ============ SLIDE 9 — ENCERRAMENTO ============ */
+  #encerramento {
+    background: var(--black);
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    min-height: 60vh;
+    border-bottom: none;
+  }
+
+  .closing-logo {
+    margin-bottom: 32px;
+  }
+
+  .closing-tagline {
+    font-size: 18px;
+    font-weight: 300;
+    color: var(--text-secondary);
+    letter-spacing: 1px;
+    margin-bottom: 48px;
+  }
+
+  .closing-tagline strong {
+    color: var(--white);
+    font-weight: 600;
+  }
+
+  .closing-meta {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--text-muted);
+  }
+
+  /* ============ NAV ============ */
+  .nav {
+    position: fixed;
+    top: 40px;
+    left: 64px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    z-index: 100;
+  }
+
+  .nav-logo {
+    font-size: 13px;
+    font-weight: 800;
+    letter-spacing: 1px;
+    color: var(--white);
+  }
+
+  .nav-dot {
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background: var(--text-muted);
+  }
+
+  .nav-label {
+    font-size: 11px;
+    font-weight: 500;
+    color: var(--text-muted);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+  }
+
+  /* ============ SECTION HEADER ============ */
+  .section-header {
+    margin-bottom: 8px;
+  }
+
+  .section-title {
+    font-size: clamp(32px, 4vw, 56px);
+    font-weight: 800;
+    letter-spacing: -1.5px;
+    line-height: 1.05;
+    margin-bottom: 16px;
+  }
+
+  .section-desc {
+    font-size: 15px;
+    color: var(--text-secondary);
+    max-width: 600px;
+    line-height: 1.6;
+  }
+
+  /* GL Logo SVG inline */
+  .gl-logo-svg {
+    display: block;
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<div class="nav">
+  <span class="nav-logo">G.L</span>
+  <div class="nav-dot"></div>
+  <span class="nav-label">Brand Identity 2026</span>
+</div>
+
+<!-- ============ SLIDE 1 — COVER ============ -->
+<section class="slide" id="cover">
+  <div class="cover-grid">
+    <div class="cover-left">
+      <div style="height: 60px"></div>
+      <div class="cover-logo-text">
+        <div class="cover-wordmark">
+          <div class="cover-gl">G.L</div>
+          <div class="cover-subtitle-text">Tráfego Pago</div>
+        </div>
+      </div>
+      <div>
+        <div class="cover-tagline">
+          Não somos uma agência de anúncios.<br>
+          <strong>Somos estrutura de vendas.</strong>
+        </div>
+        <div style="height: 48px"></div>
+        <div class="cover-meta">
+          <div class="cover-meta-item">
+            <span class="cover-meta-label">Versão</span>
+            <span class="cover-meta-value">Brand Identity 2026</span>
+          </div>
+          <div class="cover-meta-item">
+            <span class="cover-meta-label">Operador</span>
+            <span class="cover-meta-value">Giliade Bartolomeu</span>
+          </div>
+          <div class="cover-meta-item">
+            <span class="cover-meta-label">Segmento</span>
+            <span class="cover-meta-value">Tráfego Pago</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="cover-right">
+      <!-- GL Monogram grande em preto sobre branco -->
+      <svg width="320" height="320" viewBox="0 0 320 320" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <!-- G -->
+        <path d="M 40 8 L 200 8 L 200 56 L 88 56 L 88 152 L 200 152 L 200 100 L 148 100 L 148 56 L 200 56 L 200 152 L 88 152 L 88 264 L 200 264 L 200 216 L 200 264 L 40 264 Z" fill="#000000"/>
+        <rect x="40" y="8" width="48" height="256" fill="#000000"/>
+        <rect x="40" y="8" width="160" height="48" fill="#000000"/>
+        <rect x="40" y="216" width="160" height="48" fill="#000000"/>
+        <rect x="100" y="100" width="100" height="52" fill="#000000"/>
+        <rect x="148" y="100" width="52" height="116" fill="#000000"/>
+
+        <!-- L -->
+        <rect x="220" y="8" width="48" height="256" fill="#000000"/>
+        <rect x="220" y="216" width="112" height="48" fill="#000000"/>
+      </svg>
+    </div>
+  </div>
+  <div class="slide-number">01 / 08</div>
+</section>
+
+<!-- ============ SLIDE 2 — POSICIONAMENTO ============ -->
+<section class="slide" id="posicionamento">
+  <div class="slide-inner">
+    <div class="overline">Posicionamento</div>
+    <div class="positioning-headline">
+      <span class="highlight">Esqueça "agência de tráfego".</span><br>
+      Venda previsível é o produto.
+    </div>
+    <div class="positioning-grid">
+      <div class="positioning-item">
+        <div class="positioning-item-label">Quem somos</div>
+        <div class="positioning-item-text">Estrutura comercial completa — não só quem roda anúncio</div>
+      </div>
+      <div class="positioning-item">
+        <div class="positioning-item-label">Para quem</div>
+        <div class="positioning-item-text">Negócios que vendem e querem vender de forma previsível</div>
+      </div>
+      <div class="positioning-item">
+        <div class="positioning-item-label">Diferencial</div>
+        <div class="positioning-item-text">Ads → WhatsApp → Venda: um funil, não três serviços</div>
+      </div>
+    </div>
+
+    <div style="margin-top: 48px; padding: 40px; border: 1px solid #1A1A1A; border-radius: 12px; max-width: 700px;">
+      <div class="overline" style="margin-bottom: 16px;">Tagline</div>
+      <div style="font-size: 40px; font-weight: 800; letter-spacing: -1px; line-height: 1.1;">
+        "Tráfego que vende."
+      </div>
+      <div style="font-size: 14px; color: var(--text-secondary); margin-top: 16px; line-height: 1.5;">
+        Curta, direta, proprietária. Comunica resultado, não processo.
+      </div>
+    </div>
+  </div>
+  <div class="slide-number">02 / 08</div>
+</section>
+
+<!-- ============ SLIDE 3 — LOGOTIPO ============ -->
+<section class="slide" id="logo-section">
+  <div class="slide-inner">
+    <div class="overline">Logotipo</div>
+    <div class="section-title">Sistema de logo</div>
+    <div class="section-desc">Wordmark tipográfico construído em Inter Bold. Pregnância máxima, zero ornamento.</div>
+
+    <div class="logo-grid" style="margin-top: 40px;">
+      <!-- Logo sobre fundo escuro -->
+      <div class="logo-panel dark">
+        <div style="display: flex; flex-direction: column; align-items: flex-start; gap: 4px;">
+          <div style="font-size: 72px; font-weight: 900; letter-spacing: -2px; color: #fff; line-height: 1;">G.L</div>
+          <div style="font-size: 13px; font-weight: 500; letter-spacing: 10px; color: #4A4A4A; text-transform: uppercase;">Tráfego Pago</div>
+        </div>
+      </div>
+      <!-- Logo sobre fundo claro -->
+      <div class="logo-panel light">
+        <div style="display: flex; flex-direction: column; align-items: flex-start; gap: 4px;">
+          <div style="font-size: 72px; font-weight: 900; letter-spacing: -2px; color: #000; line-height: 1;">G.L</div>
+          <div style="font-size: 13px; font-weight: 500; letter-spacing: 10px; color: #9A9A9A; text-transform: uppercase;">Tráfego Pago</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="logo-variations">
+      <!-- Ícone escuro -->
+      <div class="logo-var">
+        <div style="width: 72px; height: 72px; background: #000; border-radius: 16px; border: 1px solid #2A2A2A; display: flex; align-items: center; justify-content: center;">
+          <div style="font-size: 24px; font-weight: 900; color: #fff; letter-spacing: -1px;">G.L</div>
+        </div>
+        <div class="logo-var-label">Ícone · escuro</div>
+      </div>
+      <!-- Ícone claro -->
+      <div class="logo-var on-light">
+        <div style="width: 72px; height: 72px; background: #fff; border-radius: 16px; border: 1px solid #ddd; display: flex; align-items: center; justify-content: center;">
+          <div style="font-size: 24px; font-weight: 900; color: #000; letter-spacing: -1px;">G.L</div>
+        </div>
+        <div class="logo-var-label">Ícone · claro</div>
+      </div>
+      <!-- Horizontal -->
+      <div class="logo-var">
+        <div style="display: flex; align-items: baseline; gap: 12px;">
+          <div style="font-size: 28px; font-weight: 900; color: #fff; letter-spacing: -1px;">G.L</div>
+          <div style="font-size: 11px; font-weight: 500; letter-spacing: 5px; color: #4A4A4A; text-transform: uppercase;">Tráfego Pago</div>
+        </div>
+        <div class="logo-var-label">Versão horizontal</div>
+      </div>
+      <!-- Compacto -->
+      <div class="logo-var">
+        <div style="font-size: 22px; font-weight: 900; color: #fff; letter-spacing: 4px; text-transform: uppercase;">GL TRÁFEGO PAGO</div>
+        <div class="logo-var-label">Versão compacta</div>
+      </div>
+    </div>
+
+    <div class="logo-rules">
+      <div class="logo-rule">
+        <div class="logo-rule-icon do">✓</div>
+        <div class="logo-rule-text">Usar sempre com área de proteção mínima (altura do "G" em todos os lados)</div>
+      </div>
+      <div class="logo-rule">
+        <div class="logo-rule-icon do">✓</div>
+        <div class="logo-rule-text">Branco sobre fundos escuros, preto sobre fundos claros</div>
+      </div>
+      <div class="logo-rule">
+        <div class="logo-rule-icon dont">✗</div>
+        <div class="logo-rule-text">Nunca distorcer, rotacionar ou aplicar sombra pesada</div>
+      </div>
+      <div class="logo-rule">
+        <div class="logo-rule-icon dont">✗</div>
+        <div class="logo-rule-text">Nunca colocar sobre fundo colorido ou imagem sem overlay</div>
+      </div>
+    </div>
+  </div>
+  <div class="slide-number">03 / 08</div>
+</section>
+
+<!-- ============ SLIDE 4 — CORES ============ -->
+<section class="slide" id="cores">
+  <div class="slide-inner">
+    <div class="overline">Identidade Visual</div>
+    <div class="section-title">Paleta de cores</div>
+    <div class="section-desc">Preto e branco como base. Cinzas para hierarquia. Cores funcionais só para dados e feedback.</div>
+
+    <div class="color-system">
+      <div class="color-group">
+        <h3>Cores primárias</h3>
+        <div class="color-swatches">
+          <div class="swatch">
+            <div class="swatch-dot" style="background: #000000; border-color: #2A2A2A;"></div>
+            <div class="swatch-info">
+              <div class="swatch-name">Brand Black</div>
+              <div class="swatch-hex">#000000</div>
+            </div>
+            <div class="swatch-role">Fundo principal</div>
+          </div>
+          <div class="swatch">
+            <div class="swatch-dot" style="background: #FFFFFF;"></div>
+            <div class="swatch-info">
+              <div class="swatch-name">Brand White</div>
+              <div class="swatch-hex">#FFFFFF</div>
+            </div>
+            <div class="swatch-role">Texto, CTAs, destaque</div>
+          </div>
+          <div class="swatch">
+            <div class="swatch-dot" style="background: #0A0A0A;"></div>
+            <div class="swatch-info">
+              <div class="swatch-name">Black Soft</div>
+              <div class="swatch-hex">#0A0A0A</div>
+            </div>
+            <div class="swatch-role">Fundo alternativo</div>
+          </div>
+          <div class="swatch">
+            <div class="swatch-dot" style="background: #111111;"></div>
+            <div class="swatch-info">
+              <div class="swatch-name">Card</div>
+              <div class="swatch-hex">#111111</div>
+            </div>
+            <div class="swatch-role">Cards, seções</div>
+          </div>
+        </div>
+
+        <div style="margin-top: 16px;">
+          <h3 style="margin-bottom: 12px;">Cores funcionais</h3>
+          <div class="semantic-colors">
+            <div class="sem-color">
+              <div class="sem-dot" style="background: #22C55E;"></div>
+              <div class="sem-name">Sucesso</div>
+              <div class="sem-hex">#22C55E</div>
+              <div class="sem-use">Métricas positivas</div>
+            </div>
+            <div class="sem-color">
+              <div class="sem-dot" style="background: #EAB308;"></div>
+              <div class="sem-name">Atenção</div>
+              <div class="sem-hex">#EAB308</div>
+              <div class="sem-use">Alertas</div>
+            </div>
+            <div class="sem-color">
+              <div class="sem-dot" style="background: #EF4444;"></div>
+              <div class="sem-name">Erro</div>
+              <div class="sem-hex">#EF4444</div>
+              <div class="sem-use">Métricas negativas</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="color-group">
+        <h3>Escala de neutros</h3>
+        <div class="color-swatches">
+          <div class="swatch">
+            <div class="swatch-dot" style="background: #1A1A1A;"></div>
+            <div class="swatch-info">
+              <div class="swatch-name">Neutral 800</div>
+              <div class="swatch-hex">#1A1A1A</div>
+            </div>
+            <div class="swatch-role">Bordas ativas</div>
+          </div>
+          <div class="swatch">
+            <div class="swatch-dot" style="background: #2A2A2A;"></div>
+            <div class="swatch-info">
+              <div class="swatch-name">Neutral 700</div>
+              <div class="swatch-hex">#2A2A2A</div>
+            </div>
+            <div class="swatch-role">Bordas de cards</div>
+          </div>
+          <div class="swatch">
+            <div class="swatch-dot" style="background: #3A3A3A;"></div>
+            <div class="swatch-info">
+              <div class="swatch-name">Neutral 600</div>
+              <div class="swatch-hex">#3A3A3A</div>
+            </div>
+            <div class="swatch-role">Overlines, labels</div>
+          </div>
+          <div class="swatch">
+            <div class="swatch-dot" style="background: #6B6B6B;"></div>
+            <div class="swatch-info">
+              <div class="swatch-name">Neutral 500</div>
+              <div class="swatch-hex">#6B6B6B</div>
+            </div>
+            <div class="swatch-role">Texto secundário</div>
+          </div>
+          <div class="swatch">
+            <div class="swatch-dot" style="background: #8A8A8A;"></div>
+            <div class="swatch-info">
+              <div class="swatch-name">Neutral 400</div>
+              <div class="swatch-hex">#8A8A8A</div>
+            </div>
+            <div class="swatch-role">Texto desabilitado</div>
+          </div>
+          <div class="swatch">
+            <div class="swatch-dot" style="background: #F5F5F5; border-color: #E0E0E0;"></div>
+            <div class="swatch-info">
+              <div class="swatch-name" style="color: #000;">Neutral 50</div>
+              <div class="swatch-hex">#F5F5F5</div>
+            </div>
+            <div class="swatch-role">Fundo claro</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="slide-number">04 / 08</div>
+</section>
+
+<!-- ============ SLIDE 5 — TIPOGRAFIA ============ -->
+<section class="slide" id="tipografia">
+  <div class="slide-inner">
+    <div class="overline">Identidade Visual</div>
+    <div class="section-title">Tipografia</div>
+    <div class="section-desc">Uma família. Múltiplos pesos. Inter em todas as aplicações — digital e impresso.</div>
+
+    <div class="type-showcase">
+      <div class="type-row">
+        <div class="type-meta">
+          <span class="type-token">Heading 1</span>
+          <span class="type-spec">48px · Bold 700</span>
+        </div>
+        <div class="type-sample" style="font-size: 48px; font-weight: 700; letter-spacing: -1.5px;">Resultados reais</div>
+        <div class="type-weight-label">Bold</div>
+        <div class="type-use">Hero, títulos</div>
+      </div>
+      <div class="type-row">
+        <div class="type-meta">
+          <span class="type-token">Heading 2</span>
+          <span class="type-spec">36px · Bold 700</span>
+        </div>
+        <div class="type-sample" style="font-size: 36px; font-weight: 700; letter-spacing: -1px;">Tráfego que converte</div>
+        <div class="type-weight-label">Bold</div>
+        <div class="type-use">Seções</div>
+      </div>
+      <div class="type-row">
+        <div class="type-meta">
+          <span class="type-token">Heading 3</span>
+          <span class="type-spec">24px · Semibold 600</span>
+        </div>
+        <div class="type-sample" style="font-size: 24px; font-weight: 600;">Estrutura comercial completa</div>
+        <div class="type-weight-label">Semibold</div>
+        <div class="type-use">Subtítulos</div>
+      </div>
+      <div class="type-row">
+        <div class="type-meta">
+          <span class="type-token">Body</span>
+          <span class="type-spec">16px · Regular 400</span>
+        </div>
+        <div class="type-sample" style="font-size: 16px; font-weight: 400; color: #8A8A8A;">Geramos leads qualificados com estrutura de funil que transforma atendimento em venda previsível.</div>
+        <div class="type-weight-label">Regular</div>
+        <div class="type-use">Texto corrido</div>
+      </div>
+      <div class="type-row">
+        <div class="type-meta">
+          <span class="type-token">Overline</span>
+          <span class="type-spec">11px · Bold 700</span>
+        </div>
+        <div class="type-sample" style="font-size: 11px; font-weight: 700; letter-spacing: 4px; text-transform: uppercase; color: #3A3A3A;">Gestão de Tráfego Pago · Meta Ads · Google Ads</div>
+        <div class="type-weight-label">Bold</div>
+        <div class="type-use">Labels, categorias</div>
+      </div>
+      <div class="type-row">
+        <div class="type-meta">
+          <span class="type-token">CTA / Botão</span>
+          <span class="type-spec">12px · Bold 700</span>
+        </div>
+        <div class="type-sample" style="font-size: 12px; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; background: #fff; color: #000; padding: 12px 24px; border-radius: 6px; display: inline-block;">Falar com especialista</div>
+        <div class="type-weight-label">Bold</div>
+        <div class="type-use">Botões, CTAs</div>
+      </div>
+    </div>
+  </div>
+  <div class="slide-number">05 / 08</div>
+</section>
+
+<!-- ============ SLIDE 6 — CRIATIVOS ============ -->
+<section class="slide" id="criativos">
+  <div class="slide-inner">
+    <div class="overline">Aplicações</div>
+    <div class="section-title">Criativos</div>
+    <div class="section-desc">Exemplos de aplicação da identidade em peças reais — post, story e proposta.</div>
+
+    <div class="creatives-grid">
+      <!-- Post Instagram -->
+      <div class="creative-card">
+        <div class="creative-label">Post Instagram · 1080×1080</div>
+        <div class="mock-post">
+          <div class="mock-post-overline">G.L Tráfego Pago · Meta Ads</div>
+          <div>
+            <div class="mock-post-headline">Seu negócio<br>merece leads<br>todo dia.</div>
+          </div>
+          <div class="mock-post-body">Enquanto você atende,<br>a gente traz cliente.</div>
+          <div class="mock-post-cta">Falar agora</div>
+        </div>
+      </div>
+
+      <!-- Story -->
+      <div class="creative-card">
+        <div class="creative-label">Story / Reels · 1080×1920</div>
+        <div class="mock-story">
+          <div class="mock-story-top">
+            <div class="mock-story-profile">
+              <div class="mock-avatar">G.L</div>
+              <span class="mock-username">@ogiliadebarth</span>
+            </div>
+          </div>
+          <div class="mock-story-content">
+            <div class="mock-story-tag">Resultado real · Cliente</div>
+            <div class="mock-story-headline">De 0 pra 47 leads em 7 dias.</div>
+            <div class="mock-story-sub">Floricultura no interior de SP. Estrutura simples, resultado imediato.</div>
+          </div>
+          <div class="mock-story-cta">Ver como foi →</div>
+        </div>
+      </div>
+
+      <!-- Proposta -->
+      <div class="creative-card">
+        <div class="creative-label">Proposta Comercial · PDF</div>
+        <div class="mock-proposta">
+          <div class="mock-proposta-header">
+            <div>
+              <div class="mock-proposta-title">Proposta comercial</div>
+              <div class="mock-proposta-client">Floricultura Bella</div>
+            </div>
+            <div class="mock-proposta-logo">G.L<br>Tráfego Pago</div>
+          </div>
+          <div class="mock-proposta-divider"></div>
+          <div class="mock-proposta-items">
+            <div class="mock-proposta-item">
+              <span class="mock-proposta-item-name">Gestão Meta Ads</span>
+              <span class="mock-proposta-item-value">incluso</span>
+            </div>
+            <div class="mock-proposta-item">
+              <span class="mock-proposta-item-name">Estratégia de funil</span>
+              <span class="mock-proposta-item-value">incluso</span>
+            </div>
+            <div class="mock-proposta-item">
+              <span class="mock-proposta-item-name">Relatório mensal</span>
+              <span class="mock-proposta-item-value">incluso</span>
+            </div>
+            <div class="mock-proposta-item">
+              <span class="mock-proposta-item-name">Criativos (4/mês)</span>
+              <span class="mock-proposta-item-value">incluso</span>
+            </div>
+          </div>
+          <div class="mock-proposta-total">
+            <span class="mock-proposta-total-label">Investimento</span>
+            <span class="mock-proposta-total-value">R$ 1.497<span style="font-size: 14px; font-weight: 400; color: #6B6B6B;">/mês</span></span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="slide-number">06 / 08</div>
+</section>
+
+<!-- ============ SLIDE 7 — APLICAÇÕES DIGITAIS ============ -->
+<section class="slide" id="aplicacoes">
+  <div class="slide-inner">
+    <div class="overline">Aplicações</div>
+    <div class="section-title">Relatório + Anúncio</div>
+    <div class="section-desc">Relatório de performance para o cliente e modelo de anúncio no padrão da marca.</div>
+
+    <div class="apps-grid">
+      <!-- Relatório -->
+      <div class="app-card">
+        <div class="app-card-header">
+          <span class="app-card-title">Relatório Mensal</span>
+          <span class="app-card-badge">Março 2026</span>
+        </div>
+        <div class="mock-relatorio">
+          <div class="mock-rel-period">Período · Março 2026</div>
+          <div class="mock-rel-client">Floricultura Bella</div>
+          <div class="mock-rel-stats">
+            <div class="mock-stat">
+              <div class="mock-stat-label">Leads</div>
+              <div class="mock-stat-value">184</div>
+              <div class="mock-stat-delta delta-up">↑ +22% vs fev</div>
+            </div>
+            <div class="mock-stat">
+              <div class="mock-stat-label">CPL</div>
+              <div class="mock-stat-value">R$8,70</div>
+              <div class="mock-stat-delta delta-up">↓ melhorou</div>
+            </div>
+            <div class="mock-stat">
+              <div class="mock-stat-label">Invest.</div>
+              <div class="mock-stat-value">R$1.600</div>
+              <div class="mock-stat-delta" style="color: var(--text-secondary);">— estável</div>
+            </div>
+          </div>
+          <div class="mock-rel-analysis">
+            <h4>O que funcionou</h4>
+            <p>Criativo UGC com testemunho gerou CPL 30% menor. Campanha de remarketing com oferta de buquê trouxe 41 leads qualificados na última semana.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Anúncio -->
+      <div class="app-card">
+        <div class="app-card-header">
+          <span class="app-card-title">Anúncio · Meta Ads</span>
+          <span class="app-card-badge">Modelo UGC</span>
+        </div>
+        <div class="mock-ad">
+          <div class="mock-ad-tag">Hook · 3 segundos</div>
+          <div class="mock-ad-hook">
+            <span class="striked">Sem anúncio</span><br>
+            não existe cliente.
+          </div>
+          <div class="mock-ad-body">
+            A maioria dos negócios locais perde venda todo dia por falta de presença digital. A G.L resolve isso em 30 dias.
+          </div>
+          <div class="mock-ad-proof">
+            <div class="mock-proof-icon"></div>
+            <div class="mock-proof-text">
+              <strong>"Em 2 semanas já tinha mais de 30 leads por dia."</strong><br>
+              — Cliente real, floricultura, SP
+            </div>
+          </div>
+          <div class="mock-ad-cta">Falar com especialista</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="slide-number">07 / 08</div>
+</section>
+
+<!-- ============ SLIDE 8 — MENSAGENS-CHAVE ============ -->
+<section class="slide" id="mensagens">
+  <div class="slide-inner">
+    <div class="overline">Tom de Voz</div>
+    <div class="section-title">Mensagens-chave</div>
+    <div class="section-desc">Frases que definem o posicionamento. Use em bio, proposta, apresentação e anúncio.</div>
+
+    <div class="messages-grid">
+      <div class="message-card featured">
+        <div class="message-type">Tagline principal</div>
+        <div class="message-text">Tráfego que vende.</div>
+        <div class="message-context">Curta, direta, proprietária. Use em todos os materiais.</div>
+      </div>
+      <div class="message-card">
+        <div class="message-type">Bio / Apresentação</div>
+        <div class="message-text">Estrutura de vendas para negócios que querem crescer de forma previsível.</div>
+        <div class="message-context">Para bio do Instagram e abertura de proposta.</div>
+      </div>
+      <div class="message-card">
+        <div class="message-type">Argumento de venda</div>
+        <div class="message-text">Não vendemos anúncio. Vendemos resultado — leads que viram clientes.</div>
+        <div class="message-context">Para WhatsApp comercial e apresentações.</div>
+      </div>
+      <div class="message-card">
+        <div class="message-type">Hook de anúncio</div>
+        <div class="message-text">Seu negócio pode gerar leads todo dia. O problema não é o produto — é a estrutura.</div>
+        <div class="message-context">Para criativos de topo de funil.</div>
+      </div>
+      <div class="message-card">
+        <div class="message-type">Fechamento comercial</div>
+        <div class="message-text">30 dias de resultado ou a gente ajusta até funcionar.</div>
+        <div class="message-context">Para objeções de "e se não der certo".</div>
+      </div>
+    </div>
+  </div>
+  <div class="slide-number">08 / 08</div>
+</section>
+
+<!-- ============ ENCERRAMENTO ============ -->
+<section class="slide" id="encerramento">
+  <div style="display: flex; flex-direction: column; align-items: center; text-align: center;">
+    <div style="font-size: 80px; font-weight: 900; letter-spacing: -3px; margin-bottom: 8px;">G.L</div>
+    <div style="font-size: 13px; font-weight: 500; letter-spacing: 10px; color: #4A4A4A; text-transform: uppercase; margin-bottom: 48px;">Tráfego Pago</div>
+    <div class="closing-tagline">
+      <strong>Tráfego que vende.</strong>
+    </div>
+    <div style="width: 64px; height: 1px; background: #1A1A1A; margin-bottom: 32px;"></div>
+    <div class="closing-meta">Brand Identity 2026 · Giliade Bartolomeu · @ogiliadebarth</div>
+  </div>
+</section>
+
+</body>
+</html>
