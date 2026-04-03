@@ -1,0 +1,1158 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>G.L Tráfego Pago — Tráfego que vende.</title>
+<meta name="description" content="Estrutura de tráfego pago que transforma cliques em clientes reais. Meta Ads + Google Ads + funil de WhatsApp para negócios locais.">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --blue:      #1561FF;
+  --blue-dark: #0A3FCC;
+  --blue-light:#EEF3FF;
+  --blue-muted:#93B4FF;
+  --black:     #0D0D14;
+  --gray-900:  #1A1A2E;
+  --gray-700:  #444466;
+  --gray-500:  #777799;
+  --gray-300:  #BBBBCC;
+  --gray-100:  #F0F0F8;
+  --white:     #FFFFFF;
+  --success:   #22C55E;
+  --radius:    12px;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Inter', -apple-system, sans-serif;
+  background: var(--white);
+  color: var(--black);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ══════════════════════════
+   NAV
+══════════════════════════ */
+nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  background: rgba(255,255,255,0.92);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid #E8E8F0;
+  padding: 0 32px;
+  height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.nav-logo {
+  font-size: 22px;
+  font-weight: 900;
+  color: var(--blue);
+  letter-spacing: -0.5px;
+}
+
+.nav-logo span {
+  font-weight: 400;
+  color: var(--gray-500);
+  font-size: 13px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-left: 8px;
+}
+
+.nav-cta {
+  background: var(--blue);
+  color: var(--white);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  padding: 12px 24px;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: background 0.2s;
+}
+
+.nav-cta:hover { background: var(--blue-dark); }
+
+/* ══════════════════════════
+   HERO
+══════════════════════════ */
+.hero {
+  padding: 160px 32px 100px;
+  background: var(--white);
+  text-align: center;
+  max-width: 860px;
+  margin: 0 auto;
+}
+
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--blue-light);
+  color: var(--blue);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  padding: 8px 16px;
+  border-radius: 99px;
+  margin-bottom: 32px;
+}
+
+.hero-badge::before {
+  content: '';
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--blue);
+}
+
+h1 {
+  font-size: clamp(40px, 7vw, 80px);
+  font-weight: 900;
+  line-height: 1.0;
+  letter-spacing: -3px;
+  color: var(--black);
+  margin-bottom: 24px;
+}
+
+h1 .blue { color: var(--blue); }
+
+.hero-sub {
+  font-size: clamp(16px, 2.5vw, 20px);
+  color: var(--gray-500);
+  line-height: 1.6;
+  max-width: 560px;
+  margin: 0 auto 40px;
+}
+
+.hero-ctas {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-bottom: 48px;
+}
+
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--blue);
+  color: var(--white);
+  font-size: 15px;
+  font-weight: 700;
+  padding: 18px 36px;
+  border-radius: 10px;
+  text-decoration: none;
+  transition: background 0.2s, transform 0.1s;
+}
+
+.btn-primary:hover { background: var(--blue-dark); transform: translateY(-1px); }
+
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: transparent;
+  color: var(--gray-700);
+  font-size: 15px;
+  font-weight: 600;
+  padding: 18px 28px;
+  border-radius: 10px;
+  border: 1.5px solid #E0E0EE;
+  text-decoration: none;
+  transition: border-color 0.2s;
+}
+
+.btn-secondary:hover { border-color: var(--blue); color: var(--blue); }
+
+.hero-proof {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+
+.hero-proof-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  color: var(--gray-500);
+}
+
+.hero-proof-item .check {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: var(--success);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.hero-proof-item .check::after {
+  content: '✓';
+  font-size: 10px;
+  color: white;
+  font-weight: 800;
+}
+
+/* ══════════════════════════
+   STATS BAR
+══════════════════════════ */
+.stats-bar {
+  background: var(--blue);
+  padding: 56px 32px;
+}
+
+.stats-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 40px;
+  text-align: center;
+}
+
+.stat-number {
+  font-size: 52px;
+  font-weight: 900;
+  color: var(--white);
+  letter-spacing: -2px;
+  line-height: 1;
+  margin-bottom: 8px;
+}
+
+.stat-label {
+  font-size: 14px;
+  color: var(--blue-muted);
+  font-weight: 500;
+  line-height: 1.4;
+}
+
+/* ══════════════════════════
+   PROBLEMA
+══════════════════════════ */
+.section {
+  padding: 100px 32px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.section-tag {
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: var(--blue);
+  margin-bottom: 16px;
+}
+
+h2 {
+  font-size: clamp(28px, 4vw, 52px);
+  font-weight: 900;
+  letter-spacing: -1.5px;
+  line-height: 1.1;
+  margin-bottom: 20px;
+}
+
+.section-sub {
+  font-size: 17px;
+  color: var(--gray-500);
+  line-height: 1.6;
+  max-width: 600px;
+  margin-bottom: 56px;
+}
+
+.problem-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.problem-card {
+  background: #FFF5F5;
+  border: 1px solid #FFD0D0;
+  border-radius: var(--radius);
+  padding: 32px;
+}
+
+.problem-icon {
+  font-size: 28px;
+  margin-bottom: 16px;
+}
+
+.problem-card h3 {
+  font-size: 17px;
+  font-weight: 800;
+  color: var(--black);
+  margin-bottom: 10px;
+}
+
+.problem-card p {
+  font-size: 14px;
+  color: var(--gray-500);
+  line-height: 1.6;
+}
+
+/* ══════════════════════════
+   SOLUÇÃO
+══════════════════════════ */
+.solution-bg {
+  background: var(--gray-100);
+}
+
+.solution-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.solution-card {
+  background: var(--white);
+  border: 1px solid #E8E8F0;
+  border-radius: var(--radius);
+  padding: 36px 32px;
+  transition: box-shadow 0.2s, transform 0.2s;
+}
+
+.solution-card:hover {
+  box-shadow: 0 8px 32px rgba(21,97,255,0.1);
+  transform: translateY(-2px);
+}
+
+.solution-card .icon {
+  width: 48px;
+  height: 48px;
+  background: var(--blue-light);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+  margin-bottom: 20px;
+}
+
+.solution-card h3 {
+  font-size: 18px;
+  font-weight: 800;
+  margin-bottom: 10px;
+}
+
+.solution-card p {
+  font-size: 14px;
+  color: var(--gray-500);
+  line-height: 1.7;
+}
+
+/* ══════════════════════════
+   COMO FUNCIONA
+══════════════════════════ */
+.steps {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  max-width: 720px;
+}
+
+.step {
+  display: flex;
+  gap: 32px;
+  padding-bottom: 48px;
+  position: relative;
+}
+
+.step:not(:last-child)::after {
+  content: '';
+  position: absolute;
+  left: 23px;
+  top: 52px;
+  bottom: 0;
+  width: 2px;
+  background: linear-gradient(to bottom, var(--blue), var(--blue-light));
+}
+
+.step-num {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: var(--blue);
+  color: var(--white);
+  font-size: 18px;
+  font-weight: 900;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  position: relative;
+  z-index: 1;
+}
+
+.step-content h3 {
+  font-size: 22px;
+  font-weight: 800;
+  margin-bottom: 8px;
+  padding-top: 10px;
+}
+
+.step-content p {
+  font-size: 15px;
+  color: var(--gray-500);
+  line-height: 1.7;
+}
+
+/* ══════════════════════════
+   DEPOIMENTOS
+══════════════════════════ */
+.testimonials-bg {
+  background: var(--black);
+  padding: 100px 32px;
+}
+
+.testimonials-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.testimonials-inner .section-tag { color: var(--blue-muted); }
+.testimonials-inner h2 { color: var(--white); }
+
+.testimonials-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-top: 56px;
+}
+
+.testimonial-card {
+  background: #13131E;
+  border: 1px solid #2A2A40;
+  border-radius: var(--radius);
+  padding: 36px;
+}
+
+.stars {
+  display: flex;
+  gap: 3px;
+  margin-bottom: 20px;
+}
+
+.star {
+  width: 16px;
+  height: 16px;
+  background: #FBBF24;
+  clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+}
+
+.testimonial-quote {
+  font-size: 15px;
+  color: #AAAACC;
+  line-height: 1.7;
+  margin-bottom: 28px;
+  font-style: italic;
+}
+
+.testimonial-author {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.author-avatar {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--blue);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  font-weight: 800;
+  color: white;
+  flex-shrink: 0;
+}
+
+.author-name {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--white);
+}
+
+.author-biz {
+  font-size: 12px;
+  color: var(--gray-500);
+}
+
+/* ══════════════════════════
+   PRICING
+══════════════════════════ */
+.pricing-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.plan-card {
+  border: 1.5px solid #E0E0EE;
+  border-radius: 16px;
+  padding: 40px 36px;
+  position: relative;
+  transition: box-shadow 0.2s;
+}
+
+.plan-card:hover { box-shadow: 0 8px 32px rgba(21,97,255,0.1); }
+
+.plan-card.featured {
+  border-color: var(--blue);
+  box-shadow: 0 0 0 4px rgba(21,97,255,0.08);
+}
+
+.plan-badge {
+  position: absolute;
+  top: -14px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--blue);
+  color: white;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  padding: 6px 18px;
+  border-radius: 99px;
+  white-space: nowrap;
+}
+
+.plan-name {
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--gray-500);
+  margin-bottom: 12px;
+}
+
+.plan-price {
+  font-size: 52px;
+  font-weight: 900;
+  letter-spacing: -2px;
+  color: var(--black);
+  line-height: 1;
+  margin-bottom: 4px;
+}
+
+.plan-price span {
+  font-size: 18px;
+  font-weight: 500;
+  color: var(--gray-500);
+  letter-spacing: 0;
+}
+
+.plan-period {
+  font-size: 13px;
+  color: var(--gray-500);
+  margin-bottom: 32px;
+}
+
+.plan-divider {
+  height: 1px;
+  background: #E8E8F0;
+  margin-bottom: 28px;
+}
+
+.plan-features {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 36px;
+}
+
+.plan-features li {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 14px;
+  color: var(--gray-700);
+  line-height: 1.4;
+}
+
+.plan-features li::before {
+  content: '✓';
+  color: var(--blue);
+  font-weight: 800;
+  font-size: 13px;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+.plan-cta {
+  display: block;
+  text-align: center;
+  padding: 16px;
+  border-radius: 10px;
+  font-size: 14px;
+  font-weight: 700;
+  text-decoration: none;
+  transition: all 0.2s;
+}
+
+.plan-cta.primary {
+  background: var(--blue);
+  color: var(--white);
+}
+
+.plan-cta.primary:hover { background: var(--blue-dark); }
+
+.plan-cta.outline {
+  border: 1.5px solid #E0E0EE;
+  color: var(--black);
+}
+
+.plan-cta.outline:hover { border-color: var(--blue); color: var(--blue); }
+
+/* ══════════════════════════
+   FAQ
+══════════════════════════ */
+.faq-list {
+  max-width: 720px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.faq-item {
+  border: 1px solid #E8E8F0;
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+
+.faq-q {
+  padding: 22px 28px;
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--black);
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  user-select: none;
+}
+
+.faq-q::after {
+  content: '+';
+  font-size: 22px;
+  color: var(--blue);
+  font-weight: 400;
+  flex-shrink: 0;
+  transition: transform 0.2s;
+}
+
+.faq-item.open .faq-q::after { transform: rotate(45deg); }
+
+.faq-a {
+  font-size: 14px;
+  color: var(--gray-500);
+  line-height: 1.7;
+  padding: 0 28px;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease, padding 0.3s;
+}
+
+.faq-item.open .faq-a {
+  max-height: 200px;
+  padding: 0 28px 22px;
+}
+
+/* ══════════════════════════
+   FINAL CTA
+══════════════════════════ */
+.final-cta {
+  background: var(--blue);
+  padding: 100px 32px;
+  text-align: center;
+}
+
+.final-cta h2 {
+  color: var(--white);
+  font-size: clamp(32px, 5vw, 60px);
+  margin-bottom: 16px;
+}
+
+.final-cta p {
+  font-size: 18px;
+  color: var(--blue-muted);
+  margin-bottom: 48px;
+}
+
+.final-cta .btn-white {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--white);
+  color: var(--blue);
+  font-size: 16px;
+  font-weight: 800;
+  padding: 20px 44px;
+  border-radius: 12px;
+  text-decoration: none;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.final-cta .btn-white:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 40px rgba(0,0,0,0.2);
+}
+
+.final-urgency {
+  margin-top: 24px;
+  font-size: 13px;
+  color: rgba(255,255,255,0.5);
+}
+
+/* ══════════════════════════
+   FOOTER
+══════════════════════════ */
+footer {
+  background: var(--black);
+  padding: 48px 32px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.footer-logo {
+  font-size: 20px;
+  font-weight: 900;
+  color: var(--white);
+}
+
+.footer-logo span {
+  font-size: 12px;
+  font-weight: 400;
+  color: var(--gray-500);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-left: 8px;
+}
+
+footer p {
+  font-size: 13px;
+  color: var(--gray-500);
+}
+
+/* ══════════════════════════
+   STICKY MOBILE CTA
+══════════════════════════ */
+.sticky-cta {
+  display: none;
+  position: fixed;
+  bottom: 0; left: 0; right: 0;
+  background: var(--white);
+  padding: 16px 24px;
+  box-shadow: 0 -4px 24px rgba(0,0,0,0.08);
+  z-index: 99;
+}
+
+.sticky-cta a {
+  display: block;
+  background: var(--blue);
+  color: var(--white);
+  font-size: 15px;
+  font-weight: 800;
+  text-align: center;
+  padding: 16px;
+  border-radius: 10px;
+  text-decoration: none;
+}
+
+/* ══════════════════════════
+   RESPONSIVE
+══════════════════════════ */
+@media (max-width: 768px) {
+  .stats-inner { grid-template-columns: repeat(2, 1fr); }
+  .problem-grid { grid-template-columns: 1fr; }
+  .solution-grid { grid-template-columns: 1fr; }
+  .testimonials-grid { grid-template-columns: 1fr; }
+  .pricing-grid { grid-template-columns: 1fr; }
+  .plan-card.featured { order: -1; }
+  nav .btn-text { display: none; }
+  .sticky-cta { display: block; }
+  body { padding-bottom: 80px; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">G.L <span>Tráfego Pago</span></div>
+  <a href="https://wa.me/5521990072041?text=Oi%2C%20vim%20pelo%20site%20e%20quero%20saber%20mais%20sobre%20a%20gestão%20de%20tráfego" class="nav-cta" target="_blank">
+    Falar no WhatsApp →
+  </a>
+</nav>
+
+<!-- ══════════════════════════
+     HERO
+══════════════════════════ -->
+<section style="padding-top: 0;">
+  <div class="hero">
+    <div class="hero-badge">Gestão de tráfego pago</div>
+    <h1>Leads todo dia.<br><span class="blue">Todo dia.</span></h1>
+    <p class="hero-sub">
+      Estrutura de Meta Ads + Google Ads + funil de WhatsApp que transforma cliques em clientes reais para o seu negócio.
+    </p>
+    <div class="hero-ctas">
+      <a href="https://wa.me/5521990072041?text=Oi%2C%20vim%20pelo%20site%20e%20quero%20saber%20mais%20sobre%20a%20gestão%20de%20tráfego" class="btn-primary" target="_blank">
+        💬 Falar com especialista
+      </a>
+      <a href="#como-funciona" class="btn-secondary">
+        Ver como funciona ↓
+      </a>
+    </div>
+    <div class="hero-proof">
+      <div class="hero-proof-item"><div class="check"></div> Sem fidelidade</div>
+      <div class="hero-proof-item"><div class="check"></div> Resultado em 30 dias</div>
+      <div class="hero-proof-item"><div class="check"></div> Meta Ads + Google Ads</div>
+      <div class="hero-proof-item"><div class="check"></div> Relatório mensal</div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════
+     STATS BAR
+══════════════════════════ -->
+<section class="stats-bar">
+  <div class="stats-inner">
+    <div>
+      <div class="stat-number">+200</div>
+      <div class="stat-label">Leads gerados por mês<br>para clientes ativos</div>
+    </div>
+    <div>
+      <div class="stat-number">R$8</div>
+      <div class="stat-label">Custo por lead médio<br>em campanhas otimizadas</div>
+    </div>
+    <div>
+      <div class="stat-number">30d</div>
+      <div class="stat-label">Para ver os primeiros<br>resultados reais</div>
+    </div>
+    <div>
+      <div class="stat-number">8+</div>
+      <div class="stat-label">Anos de experiência<br>em tráfego pago</div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════
+     PROBLEMA
+══════════════════════════ -->
+<div style="background: var(--white);">
+<div class="section">
+  <div class="section-tag">O problema</div>
+  <h2>Por que seu negócio<br>não gera leads consistentes?</h2>
+  <p class="section-sub">A maioria dos negócios locais perde clientes todo dia por falta de estrutura — não de produto.</p>
+
+  <div class="problem-grid">
+    <div class="problem-card">
+      <div class="problem-icon">📉</div>
+      <h3>Campanhas que não convertem</h3>
+      <p>Investe em anúncio mas os leads não aparecem ou chegam frios, sem intenção de compra.</p>
+    </div>
+    <div class="problem-card">
+      <div class="problem-icon">🔥</div>
+      <h3>Dinheiro jogado fora</h3>
+      <p>Budget sendo queimado em segmentações erradas e criativos que ninguém para pra ver.</p>
+    </div>
+    <div class="problem-card">
+      <div class="problem-icon">😤</div>
+      <h3>Sem previsibilidade</h3>
+      <p>Mês bom, mês ruim — sem saber o que funciona ou como escalar o que deu resultado.</p>
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- ══════════════════════════
+     SOLUÇÃO
+══════════════════════════ -->
+<div class="solution-bg">
+<div class="section">
+  <div class="section-tag">A solução</div>
+  <h2>Estrutura completa de<br>aquisição de clientes</h2>
+  <p class="section-sub">Não vendemos só anúncio. Entregamos a máquina de vendas do começo ao fim.</p>
+
+  <div class="solution-grid">
+    <div class="solution-card">
+      <div class="icon">🎯</div>
+      <h3>Tráfego estratégico</h3>
+      <p>Campanhas no Meta Ads e Google Ads com segmentação precisa pro seu público ideal — não desperdício de verba.</p>
+    </div>
+    <div class="solution-card">
+      <div class="icon">💬</div>
+      <h3>Funil no WhatsApp</h3>
+      <p>Ads que caem direto no WhatsApp com abordagem estruturada. Lead qualificado, não só número de telefone.</p>
+    </div>
+    <div class="solution-card">
+      <div class="icon">📊</div>
+      <h3>Dados que guiam decisão</h3>
+      <p>Relatório mensal com CPL, CPC, CTR e análise de o que funcionou — e o que fazer no próximo mês.</p>
+    </div>
+    <div class="solution-card">
+      <div class="icon">🎬</div>
+      <h3>Criativos que convertem</h3>
+      <p>Roteiros de anúncio UGC, direto e POV com hook, demonstração e CTA claros. Sem achismo, só o que funciona.</p>
+    </div>
+    <div class="solution-card">
+      <div class="icon">🔁</div>
+      <h3>Otimização contínua</h3>
+      <p>Ajuste diário de campanhas, criativos e segmentação. Pausamos o que não funciona, escalamos o que funciona.</p>
+    </div>
+    <div class="solution-card">
+      <div class="icon">📈</div>
+      <h3>Previsibilidade de vendas</h3>
+      <p>Não só leads — estrutura comercial para transformar atendimento em venda. WhatsApp como canal de conversão.</p>
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- ══════════════════════════
+     COMO FUNCIONA
+══════════════════════════ -->
+<div style="background: var(--white);">
+<div class="section" id="como-funciona">
+  <div class="section-tag">Como funciona</div>
+  <h2>Do contrato ao<br>primeiro lead em 30 dias</h2>
+  <p class="section-sub">Processo claro, sem surpresa, sem enrolação.</p>
+
+  <div class="steps">
+    <div class="step">
+      <div class="step-num">1</div>
+      <div class="step-content">
+        <h3>Diagnóstico e estratégia</h3>
+        <p>Reunião para entender o negócio, o cliente ideal, o ticket médio e o processo comercial. Definimos o funil completo antes de gastar R$1 em anúncio.</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">2</div>
+      <div class="step-content">
+        <h3>Estrutura das campanhas</h3>
+        <p>Configuramos o Pixel, as campanhas de topo, aquecimento e remarketing. Criamos os criativos e as copies com base no que converte no seu segmento.</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">3</div>
+      <div class="step-content">
+        <h3>Primeiros leads chegando</h3>
+        <p>As campanhas sobem, monitoramos diariamente. Já na primeira semana você começa a ver movimento no WhatsApp.</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">4</div>
+      <div class="step-content">
+        <h3>Otimização e escala</h3>
+        <p>Com dados reais em mão, ajustamos o que não performa e escalamos o que funciona. Relatório mensal com tudo que aconteceu e o plano do próximo mês.</p>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- ══════════════════════════
+     DEPOIMENTOS
+══════════════════════════ -->
+<section class="testimonials-bg">
+  <div class="testimonials-inner">
+    <div class="section-tag">Resultados reais</div>
+    <h2>O que os clientes dizem</h2>
+
+    <div class="testimonials-grid">
+      <div class="testimonial-card">
+        <div class="stars"><div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div></div>
+        <p class="testimonial-quote">"Em 2 semanas já tinha mais de 30 leads por dia entrando no WhatsApp. Antes eu ficava sem movimento. Agora não consigo parar de atender."</p>
+        <div class="testimonial-author">
+          <div class="author-avatar">MB</div>
+          <div>
+            <div class="author-name">Maria B.</div>
+            <div class="author-biz">Floricultura, São Paulo</div>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial-card">
+        <div class="stars"><div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div></div>
+        <p class="testimonial-quote">"Antes eu jogava dinheiro fora sem saber. Com a G.L aprendi a ler os dados e o CPL caiu pela metade em 45 dias. Faturamento dobrou no trimestre."</p>
+        <div class="testimonial-author">
+          <div class="author-avatar">RC</div>
+          <div>
+            <div class="author-name">Roberto C.</div>
+            <div class="author-biz">Clínica Odontológica, RJ</div>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial-card">
+        <div class="stars"><div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div></div>
+        <p class="testimonial-quote">"O diferencial é que não é só 'rodar anúncio'. Estruturou o atendimento, criou roteiro de venda e acompanhou o resultado de perto. Muito além do esperado."</p>
+        <div class="testimonial-author">
+          <div class="author-avatar">AS</div>
+          <div>
+            <div class="author-name">Ana S.</div>
+            <div class="author-biz">Estética, Belo Horizonte</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════
+     PRICING
+══════════════════════════ -->
+<div style="background: var(--gray-100);">
+<div class="section">
+  <div class="section-tag">Investimento</div>
+  <h2>Planos claros,<br>sem letra miúda</h2>
+  <p class="section-sub">Escolha o plano que faz sentido pro momento do seu negócio. Sem fidelidade, sem surpresa.</p>
+
+  <div class="pricing-grid">
+    <!-- Starter -->
+    <div class="plan-card">
+      <div class="plan-name">Starter</div>
+      <div class="plan-price">R$ 997<span>/mês</span></div>
+      <div class="plan-period">+ verba de anúncio (sua conta)</div>
+      <div class="plan-divider"></div>
+      <ul class="plan-features">
+        <li>Gestão de 1 conta (Meta Ads)</li>
+        <li>Até 3 campanhas ativas</li>
+        <li>2 criativos por mês</li>
+        <li>Relatório mensal</li>
+        <li>Suporte via WhatsApp</li>
+      </ul>
+      <a href="https://wa.me/5521990072041?text=Quero%20saber%20sobre%20o%20plano%20Starter" class="plan-cta outline" target="_blank">Começar agora →</a>
+    </div>
+
+    <!-- Pro (featured) -->
+    <div class="plan-card featured">
+      <div class="plan-badge">Mais popular</div>
+      <div class="plan-name">Pro</div>
+      <div class="plan-price">R$ 1.497<span>/mês</span></div>
+      <div class="plan-period">+ verba de anúncio (sua conta)</div>
+      <div class="plan-divider"></div>
+      <ul class="plan-features">
+        <li>Meta Ads + Google Ads</li>
+        <li>Campanhas ilimitadas</li>
+        <li>4 criativos por mês</li>
+        <li>Funil completo (topo → remarketing)</li>
+        <li>Relatório mensal + análise</li>
+        <li>Reunião estratégica mensal</li>
+        <li>Suporte prioritário</li>
+      </ul>
+      <a href="https://wa.me/5521990072041?text=Quero%20saber%20sobre%20o%20plano%20Pro" class="plan-cta primary" target="_blank">Falar agora →</a>
+    </div>
+
+    <!-- Scale -->
+    <div class="plan-card">
+      <div class="plan-name">Scale</div>
+      <div class="plan-price">R$ 2.497<span>/mês</span></div>
+      <div class="plan-period">+ verba de anúncio (sua conta)</div>
+      <div class="plan-divider"></div>
+      <ul class="plan-features">
+        <li>Tudo do plano Pro</li>
+        <li>Estratégia de escala avançada</li>
+        <li>8 criativos por mês</li>
+        <li>Estruturação comercial (WhatsApp)</li>
+        <li>Reuniões quinzenais</li>
+        <li>Acesso direto ao gestor</li>
+        <li>Prioridade máxima</li>
+      </ul>
+      <a href="https://wa.me/5521990072041?text=Quero%20saber%20sobre%20o%20plano%20Scale" class="plan-cta outline" target="_blank">Começar agora →</a>
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- ══════════════════════════
+     FAQ
+══════════════════════════ -->
+<div style="background: var(--white);">
+<div class="section">
+  <div class="section-tag">Perguntas frequentes</div>
+  <h2>Dúvidas comuns</h2>
+
+  <div class="faq-list">
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggle(this)">Preciso ter conta no Meta Ads ou Google Ads?</div>
+      <div class="faq-a">Sim, você precisa ter a conta de anúncio no seu nome (ou da sua empresa) e a verba de anúncio sai do seu bolso direto para as plataformas. A G.L gerencia tudo isso por você — desde a configuração até a otimização diária.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggle(this)">Em quanto tempo vejo resultados?</div>
+      <div class="faq-a">Os primeiros leads geralmente aparecem na primeira semana. Resultados consistentes e otimizados levam entre 30 e 45 dias — tempo necessário para o algoritmo aprender e as campanhas serem ajustadas com dados reais.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggle(this)">Tem fidelidade ou contrato longo?</div>
+      <div class="faq-a">Não. Trabalhamos sem fidelidade mínima. Você pode cancelar a qualquer momento. Mas a maioria dos clientes fica — porque resultado fala mais alto que contrato.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggle(this)">Para que tipo de negócio funciona?</div>
+      <div class="faq-a">Melhor resultado para negócios locais com ticket acima de R$150 e capacidade de atender os leads. Clínicas, estéticas, floriculturas, pet shops, academias, serviços em geral. Se você tem um produto bom e precisa de cliente, a G.L entrega o cliente.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggle(this)">Como é o suporte e a comunicação?</div>
+      <div class="faq-a">Direto pelo WhatsApp. Você tem acesso ao gestor responsável pela sua conta. Sem ticket, sem protocolo — comunicação humana e rápida.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggle(this)">Quanto devo investir em anúncios?</div>
+      <div class="faq-a">Recomendamos mínimo de R$600/mês em verba para Meta Ads no plano Starter, e R$1.000/mês para os demais. Quanto mais verba bem alocada, mais resultado — mas começamos do que você tem disponível.</div>
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- ══════════════════════════
+     FINAL CTA
+══════════════════════════ -->
+<section class="final-cta">
+  <h2>Pronto para ter<br>leads todo dia?</h2>
+  <p>Conversa rápida. Sem pressão. Só pra ver se faz sentido pro seu negócio.</p>
+  <a href="https://wa.me/5521990072041?text=Oi%2C%20vim%20pelo%20site%20e%20quero%20uma%20análise%20gratuita%20do%20meu%20negócio" class="btn-white" target="_blank">
+    💬 Falar no WhatsApp agora
+  </a>
+  <div class="final-urgency">Resposta em até 1h em horário comercial · @ogiliadebarth</div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">G.L <span>Tráfego Pago</span></div>
+  <p>© 2026 G.L Tráfego Pago · Giliade Bartolomeu · Rio de Janeiro</p>
+  <p>@ogiliadebarth · (21) 99007-2041</p>
+</footer>
+
+<!-- STICKY MOBILE CTA -->
+<div class="sticky-cta">
+  <a href="https://wa.me/5521990072041?text=Oi%2C%20vim%20pelo%20site" target="_blank">💬 Falar no WhatsApp</a>
+</div>
+
+<script>
+function toggle(el) {
+  const item = el.parentElement;
+  item.classList.toggle('open');
+}
+</script>
+</body>
+</html>
